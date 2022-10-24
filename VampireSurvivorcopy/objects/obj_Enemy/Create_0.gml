@@ -1,12 +1,17 @@
 //Default Constructor
 function EnemyDefault(){
 	//EnemySystemVariables
+	enemyDir = 0;
 	enemyHealth = 10;
-	enemyInvulnurabiltyTimer = 0;
+	enemyHspd = 0;
+	enemyVspd = 0;
+	enemyInvulnerabiltyTimer = 0;
+	x = 0;
+	y = 0;
 	
 	//StatVariables
 	enemyContactDamage = 10;
-	enemyInvulnurabilityFrames = 5;
+	enemyInvulnerabilityFrames = 5;
 	enemyMaxHealth = 10;
 	enemySpeed = 10;
 	
@@ -14,17 +19,29 @@ function EnemyDefault(){
 	enemyDropTable = undefined;
 }
 
+//Initializing this Enemy's variables
+EnemyDefault();
+
+
 //Parameterized Constructor
-function EnemyParam(eHealth, eMaxHealth, eContactDamage, eSpeed){
+function EnemyParam(eX, eY, eHealth, eMaxHealth, eContactDamage, eInvulnerabilityFrames, eSpeed, eDir, eDropTable){
 	//EnemySystemVariables
+	enemyDir = eDir;
 	enemyHealth = eHealth;
-	enemyInvulnurabiltyTimer = 0;
+	enemyHspd = 0;
+	enemyVspd = 0;
+	enemyInvulnerabiltyTimer = 0;
+	x = eX;
+	y = eY;
 	
 	//StatVariables
-	enemyContactDamage = 10;
-	enemyInvulnurabilityFrames = 5;
-	enemyMaxHealth = 10;
-	enemySpeed = 10;
+	enemyContactDamage = eContactDamage;
+	enemyInvulnerabilityFrames = eInvulnerabilityFrames;
+	enemyMaxHealth = eMaxHealth;
+	enemySpeed = eSpeed;
+	
+	//MiscVariables
+	enemyDropTable = eDropTable;
 }
 
 function enemyDeath() {
@@ -42,5 +59,10 @@ function enemyHeal(healAmount) {
 
 function enemyMovement()
 {
-	//Left empty to copy code from obj_Player
+	enemyDir = point_direction(x, y, obj_Player.x, obj_Player.y);
+	enemyHspd = lengthdir_x(enemySpeed, enemyDir);
+	enemyVspd = lengthdir_y(enemySpeed, enemyDir);
+	//if ()
+	x += enemyHspd;
+	y += enemyVspd;
 }
