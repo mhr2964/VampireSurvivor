@@ -56,10 +56,10 @@ function enemyHeal(healAmount) {
 		enemyHealth = enemyMaxHealth;	
 	}
 }
-target = 0;
+
 function enemyMovement()
 {
-	enemyDir = point_direction(x, y, obj_Player.x + target, obj_Player.y + target);
+	enemyDir = point_direction(x, y, obj_Player.x + enemyTarget, obj_Player.y + enemyTarget);
 	enemyHspd = lengthdir_x(enemySpeed, enemyDir);
 	enemyVspd = lengthdir_y(enemySpeed, enemyDir);
 
@@ -67,23 +67,24 @@ function enemyMovement()
 	y += enemyVspd;
 }
 
-function enemyInitializeTarget()
+function enemyInitializeTarget(enemyTargetOffset)
 {
-	if (point_distance(x, y, obj_Player.x - 20, obj_Player.y -20) > point_distance(x, y, obj_Player.x + 20, obj_Player.y + 20))
+	if (point_distance(x, y, obj_Player.x - enemyTargetOffset, obj_Player.y - enemyTargetOffset) 
+	  > point_distance(x, y, obj_Player.x + enemyTargetOffset, obj_Player.y + enemyTargetOffset))
 	{
-		target = -20;
+		enemyTarget = enemyTargetOffset;
 	}
 	else
 	{
-		target = 20;
+		enemyTarget = enemyTargetOffset  * -1;
 	}
 }
-//enemyInitializeTarget();
+enemyInitializeTarget(20);
 
 function enemyUpdateTarget()
 {
-	if (point_distance(x, y, obj_Player.x + target, obj_Player.y) < 10)
+	if (point_distance(x, y, obj_Player.x + enemyTarget, obj_Player.y + enemyTarget) < 10)
 	{
-		target *= -1;
+		enemyTarget *= -1;
 	}
 }
