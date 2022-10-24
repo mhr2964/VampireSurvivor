@@ -7,3 +7,11 @@ else global.rightKey = 0;
 if (keyboard_check(ord("A")) || (keyboard_check(vk_left))) global.leftKey = 1;
 else global.leftKey = 0;
 
+
+
+if (keyboard_check_pressed(ord("1"))) {
+	room_goto(room_FletcherTesting);	
+}
+if (keyboard_check_pressed(ord("2"))) {
+	room_goto(room_MichaelTesting);	
+}
