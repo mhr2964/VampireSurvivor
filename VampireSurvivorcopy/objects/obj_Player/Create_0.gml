@@ -9,6 +9,7 @@ function Player() {
 	playerCollisionDamage = 0;
 	playerRevives = 0;
 	playerInvulnerabilityFrames = 10;
+	playerMagnetRadius = 100;
 	
 	//Exp Variables
 	playerEXP = 0;
@@ -27,11 +28,37 @@ function Player() {
 	
 
 }
-Player();
+
 
 
 function playerCollision() {
-	
+	//Enemy Collision
+	if (place_meeting(x, y, obj_Enemy)) {
+		var enemyRef = instance_place(x, y, obj_Enemy);
+		with (enemyRef) {
+			//Enemy takes damage from player collision here
+		}
+		if (instance_exists(enemyRef)) { //important becasue enemy may die to player collision
+			playerTakeDamage(enemyRef.enemyContactDamage);
+		}
+		//Play player take damage sfx here if sound isn't already playing
+	}
+	//Pickup Coillision
+	if (place_meeting(x, y, obj_Pickup)) {
+		var pickupRef = instance_place(x, y, obj_Pickup);
+		switch (pickupRef.type) {
+			case 0:
+				
+				break;
+		}
+		
+		if (instance_exists(pickupRef)) {
+			with (pickupRef) {
+				instance_destroy();
+			}
+		}
+		//Play playerp pickup sfx here if sound isn't already playing
+	}
 }
 
 function playerMovement() {
@@ -62,9 +89,10 @@ function playerMovement() {
 function playerLevelUp() {
 	playerEXP = 0;
 	playerLevel += 1;
-	playerEXPThreshold = playerLevel ^ 2;
-	newLevelUpItem();
+	playerEXPThreshold = sqr(playerLevel);
 	show_message("playerlevelUp");
+	newLevelUpItem();
+	
 }
 
 function newLevelUpItem() {
@@ -95,3 +123,7 @@ function playerTakeDamage(damage) {
 		playerInvulnerabilityTimer = playerInvulnerabilityFrames;	
 	}
 }
+
+
+
+Player();
