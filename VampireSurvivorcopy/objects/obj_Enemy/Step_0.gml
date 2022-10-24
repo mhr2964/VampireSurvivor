@@ -1,1 +1,2 @@
+//enemyUpdateTarget();
 enemyMovement();
