@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "VampireSurvivorcopy",
   "resources": [
+    {"id":{"name":"spr_pickupsprite","path":"sprites/spr_pickupsprite/spr_pickupsprite.yy",},"order":3,},
     {"id":{"name":"room_MichaelTesting","path":"rooms/room_MichaelTesting/room_MichaelTesting.yy",},"order":1,},
     {"id":{"name":"spr_enemyBox","path":"sprites/spr_enemyBox/spr_enemyBox.yy",},"order":0,},
     {"id":{"name":"spr_playerBox","path":"sprites/spr_playerBox/spr_playerBox.yy",},"order":1,},
