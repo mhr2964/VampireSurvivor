@@ -11,6 +11,7 @@
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":0,},
     {"id":{"name":"obj_Wall","path":"objects/obj_Wall/obj_Wall.yy",},"order":4,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":1,},
+    {"id":{"name":"spr_walls","path":"sprites/spr_walls/spr_walls.yy",},"order":2,},
     {"id":{"name":"room_FletcherTesting","path":"rooms/room_FletcherTesting/room_FletcherTesting.yy",},"order":0,},
   ],
   "Options": [
