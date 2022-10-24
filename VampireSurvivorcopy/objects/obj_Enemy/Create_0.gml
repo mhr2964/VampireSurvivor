@@ -9,14 +9,22 @@ function EnemyDefault(){
 	enemyInvulnurabilityFrames = 5;
 	enemyMaxHealth = 10;
 	enemySpeed = 10;
+	
+	//MiscVariables
+	enemyDropTable = undefined;
 }
 
 //Parameterized Constructor
 function EnemyParam(eHealth, eMaxHealth, eContactDamage, eSpeed){
+	//EnemySystemVariables
 	enemyHealth = eHealth;
-	enemyMaxHealth = eMaxHealth;
-	enemyContactDamage = eContactDamage;
-	enemySpeed = eSpeed;
+	enemyInvulnurabiltyTimer = 0;
+	
+	//StatVariables
+	enemyContactDamage = 10;
+	enemyInvulnurabilityFrames = 5;
+	enemyMaxHealth = 10;
+	enemySpeed = 10;
 }
 
 function enemyDeath() {
