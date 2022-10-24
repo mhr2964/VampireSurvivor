@@ -6,6 +6,7 @@
     {"id":{"name":"obj_Pickup","path":"objects/obj_Pickup/obj_Pickup.yy",},"order":3,},
     {"id":{"name":"obj_Management","path":"objects/obj_Management/obj_Management.yy",},"order":2,},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":0,},
+    {"id":{"name":"obj_Wall","path":"objects/obj_Wall/obj_Wall.yy",},"order":4,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":1,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
