@@ -48,7 +48,48 @@ function playerCollision() {
 		var pickupRef = instance_place(x, y, obj_Pickup);
 		switch (pickupRef.type) {
 			case 0:
+				//SmallExpPickup + 1 exp
+				playerEXP += 1;
+				break;
+			case 1:
+				//MediumEXP pickup + 100
+				playerEXP += 100;
+				break;
+			case 2:
+				//largeEXP pickup + 1000 exp
+				playerEXP += 1000;
+				break;
+			case 3:
+				//Goldocoin pickup + 1 to money
+				playerMoney += 1;
+				break;
+			case 4:
+				//Golba bag pickup + 10 to money
+				playerMoney += 10;
+				break;
+			case 5:
+				//Wall chicken
+				playerHeal(playerMaxHealth / 5);
+				break;
+			case 6:
+				//Big Magnet
+				with (obj_Management) {
+					magenetizeAll()
+				}
+				break;
+			case 7:
+				//cross
+				with (obj_Management) {
+					screenWipe();	
+				}
+				break;
+			case 8:
+				//Flaming biscuit
 				
+				break;
+			case 9:
+				//Treasure Chest
+				openChest()
 				break;
 		}
 		
@@ -87,7 +128,8 @@ function playerMovement() {
 }
 
 function playerLevelUp() {
-	playerEXP = 0;
+	playerEXP -= playerEXPThreshold;
+	if (playerEXP < 0) playerEXP = 0;
 	playerLevel += 1;
 	playerEXPThreshold = sqr(playerLevel);
 	show_message("playerlevelUp");
@@ -117,13 +159,18 @@ function playerRevive() {
 }
 
 function playerTakeDamage(damage) {
-	playerHealth -= damage;
-	if (playerHealth <= 0) playerDeath();
-	else {
-		playerInvulnerabilityTimer = playerInvulnerabilityFrames;	
+	if (playerInvulnerabilityTimer <= 0) {
+		playerHealth -= damage;
+		if (playerHealth <= 0) playerDeath();
+		else {
+			playerInvulnerabilityTimer = playerInvulnerabilityFrames;	
+		}
 	}
 }
 
+function openChest() {
+		
+}
 
 
 Player();
