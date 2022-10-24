@@ -1,11 +1,10 @@
 
 
-
 function Player() {
 	//Stat Variables
 	playerDefense = 0;
 	playerMaxHealth = 10;
-	playerSpeed = 1;
+	playerSpeed = 5;
 	playerRegen = 0;
 	playerCollisionDamage = 0;
 	playerRevives = 0;
@@ -13,7 +12,7 @@ function Player() {
 	
 	//Exp Variables
 	playerEXP = 0;
-	playerEXPThreshold = 0;
+	playerEXPThreshold = 5;
 	playerLevel = 1;
 	
 	//Misc Variables
@@ -28,6 +27,7 @@ function Player() {
 	
 
 }
+Player();
 
 
 function playerCollision() {
