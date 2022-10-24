@@ -3,6 +3,8 @@
   "resourceVersion": "1.6",
   "name": "VampireSurvivorcopy",
   "resources": [
+    {"id":{"name":"spr_enemyBox","path":"sprites/spr_enemyBox/spr_enemyBox.yy",},"order":0,},
+    {"id":{"name":"spr_playerBox","path":"sprites/spr_playerBox/spr_playerBox.yy",},"order":1,},
     {"id":{"name":"obj_Pickup","path":"objects/obj_Pickup/obj_Pickup.yy",},"order":3,},
     {"id":{"name":"obj_Management","path":"objects/obj_Management/obj_Management.yy",},"order":2,},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":0,},
