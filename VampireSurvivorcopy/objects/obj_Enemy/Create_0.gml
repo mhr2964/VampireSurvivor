@@ -13,7 +13,7 @@ function EnemyDefault(){
 	enemyContactDamage = 10;
 	enemyInvulnerabilityFrames = 5;
 	enemyMaxHealth = 10;
-	enemySpeed = 10;
+	enemySpeed = 5;
 	
 	//MiscVariables
 	enemyDropTable = undefined;
@@ -56,13 +56,34 @@ function enemyHeal(healAmount) {
 		enemyHealth = enemyMaxHealth;	
 	}
 }
-
+target = 0;
 function enemyMovement()
 {
-	enemyDir = point_direction(x, y, obj_Player.x, obj_Player.y);
+	enemyDir = point_direction(x, y, obj_Player.x + target, obj_Player.y + target);
 	enemyHspd = lengthdir_x(enemySpeed, enemyDir);
 	enemyVspd = lengthdir_y(enemySpeed, enemyDir);
-	//if ()
+
 	x += enemyHspd;
 	y += enemyVspd;
+}
+
+function enemyInitializeTarget()
+{
+	if (point_distance(x, y, obj_Player.x - 20, obj_Player.y -20) > point_distance(x, y, obj_Player.x + 20, obj_Player.y + 20))
+	{
+		target = -20;
+	}
+	else
+	{
+		target = 20;
+	}
+}
+//enemyInitializeTarget();
+
+function enemyUpdateTarget()
+{
+	if (point_distance(x, y, obj_Player.x + target, obj_Player.y) < 10)
+	{
+		target *= -1;
+	}
 }
