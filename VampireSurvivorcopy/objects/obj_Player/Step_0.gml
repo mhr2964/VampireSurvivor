@@ -9,6 +9,10 @@ if (keyboard_check_pressed(vk_space)) {
 
 playerMovement();
 //playerCollision();
-if (playerEXP >= playerEXPThreshold)  {
+if (playerEXP >= playerEXPThreshold) {
 	playerLevelUp()
 }
+
+
+//PlayerRegen
+playerHeal(0.001);

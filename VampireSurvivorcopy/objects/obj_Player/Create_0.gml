@@ -5,7 +5,7 @@ function Player() {
 	playerDefense = 0;
 	playerMaxHealth = 10;
 	playerSpeed = 5;
-	playerRegen = 0;
+	playerRegen = 0; // This added to the playerHealth every frame, so make sure it's low like 0.0001 or some shit like that
 	playerCollisionDamage = 0;
 	playerRevives = 0;
 	playerInvulnerabilityFrames = 10;
@@ -159,8 +159,8 @@ function playerRevive() {
 }
 
 function playerTakeDamage(damage) {
-	if (playerInvulnerabilityTimer <= 0) {
-		playerHealth -= damage;
+	if (playerInvulnerabilityTimer <= 0) { 
+		playerHealth -= abs(damage - (playerDefense / 60)); //current defense calculations are wonky cause I haven't decided how to do that yet
 		if (playerHealth <= 0) playerDeath();
 		else {
 			playerInvulnerabilityTimer = playerInvulnerabilityFrames;	
