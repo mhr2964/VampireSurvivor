@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_Enemy",
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_enemyBox",
+    "path": "sprites/spr_enemyBox/spr_enemyBox.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
