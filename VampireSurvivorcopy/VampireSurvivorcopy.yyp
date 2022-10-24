@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "VampireSurvivorcopy",
   "resources": [
+    {"id":{"name":"room_MichaelTesting","path":"rooms/room_MichaelTesting/room_MichaelTesting.yy",},"order":1,},
     {"id":{"name":"spr_enemyBox","path":"sprites/spr_enemyBox/spr_enemyBox.yy",},"order":0,},
     {"id":{"name":"spr_playerBox","path":"sprites/spr_playerBox/spr_playerBox.yy",},"order":1,},
     {"id":{"name":"obj_Pickup","path":"objects/obj_Pickup/obj_Pickup.yy",},"order":3,},
@@ -10,7 +11,7 @@
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":0,},
     {"id":{"name":"obj_Wall","path":"objects/obj_Wall/obj_Wall.yy",},"order":4,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":1,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"room_FletcherTesting","path":"rooms/room_FletcherTesting/room_FletcherTesting.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -26,7 +27,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"room_FletcherTesting","path":"rooms/room_FletcherTesting/room_FletcherTesting.yy",},},
+    {"roomId":{"name":"room_MichaelTesting","path":"rooms/room_MichaelTesting/room_MichaelTesting.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
