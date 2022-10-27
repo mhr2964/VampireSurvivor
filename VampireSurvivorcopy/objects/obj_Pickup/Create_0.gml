@@ -2,7 +2,7 @@
 function Pickup(typeNum) {
 	type = typeNum;
 	image_index = type;
-	sprite_index = spr_pickupsprite;
+	sprite_index = spr_pickupSprite;
 	mapx = x;
 	mapy = y
 	magnetized = false;
