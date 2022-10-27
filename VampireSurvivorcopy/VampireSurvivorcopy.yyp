@@ -15,6 +15,7 @@
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":0,},
     {"id":{"name":"obj_Wall","path":"objects/obj_Wall/obj_Wall.yy",},"order":4,},
     {"id":{"name":"spr_upgradeIcons","path":"sprites/spr_upgradeIcons/spr_upgradeIcons.yy",},"order":13,},
+    {"id":{"name":"obj_Projectile","path":"objects/obj_Projectile/obj_Projectile.yy",},"order":6,},
     {"id":{"name":"spr_candle","path":"sprites/spr_candle/spr_candle.yy",},"order":10,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":1,},
     {"id":{"name":"spr_walls","path":"sprites/spr_walls/spr_walls.yy",},"order":2,},
