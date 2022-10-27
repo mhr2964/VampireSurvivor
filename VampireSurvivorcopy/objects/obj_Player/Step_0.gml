@@ -15,4 +15,4 @@ if (playerEXP >= playerEXPThreshold) {
 
 
 //PlayerRegen
-playerHeal(0.001);
+playerHeal(playerRegen);
