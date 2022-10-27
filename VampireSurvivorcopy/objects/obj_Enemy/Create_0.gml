@@ -14,7 +14,7 @@ function EnemyDefault(){
 	enemyContactDamage = 10;
 	enemyInvulnerabilityFrames = 5;
 	enemyMaxHealth = 10;
-	enemySpeed = 5;
+	enemySpeed = 1;
 	
 	//MiscVariables
 	enemyDropTable = undefined;
