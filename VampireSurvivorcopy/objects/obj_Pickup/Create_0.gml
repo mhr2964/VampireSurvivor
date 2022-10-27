@@ -8,6 +8,7 @@ function Pickup(typeNum) {
 	magnetized = false;
 	moveSpeed = 10;
 	image_speed = 0;
+	
 }
 
 
@@ -37,4 +38,4 @@ function checkIfInPlayerMagnetRange() {
 
 
 
-Pickup(irandom_range(0, 9));
+
