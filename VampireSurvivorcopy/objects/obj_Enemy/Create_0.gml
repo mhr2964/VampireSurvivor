@@ -90,3 +90,14 @@ function enemyUpdateTarget()
 		enemyTarget *= -1;
 	}
 }
+
+function enemyTakeDamage(damage)
+{
+	enemyHealth -= damage;
+}
+
+function enemyCollision()
+{
+	//Fill in 
+}
+
