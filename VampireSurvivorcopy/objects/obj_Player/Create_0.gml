@@ -84,10 +84,6 @@ function playerCollision() {
 				}
 				break;
 			case 8:
-				//Flaming biscuit
-				
-				break;
-			case 9:
 				//Treasure Chest
 				openChest()
 				break;
@@ -124,13 +120,14 @@ function playerMovement() {
 	y += playerVspd;
 	
 	//Sprite stuff
-	if (sign(playerHspd) != 0) {
-		image_speed = 1;
-		image_xscale = sign(playerHspd)
+	if (sign(playerHspd) != 0 || sign(playerVspd) != 0) {
+		image_speed = 1;	
+		if (sign(playerHspd) != 0) image_xscale = sign(playerHspd)
 	} else {
-		image_speed = 0;		
+		image_speed = 0;	
 		image_index = 0;
 	}
+
 	
 }
 
