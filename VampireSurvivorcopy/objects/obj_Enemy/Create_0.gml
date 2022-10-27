@@ -5,7 +5,7 @@ function EnemyDefault(){
 	enemyHealth = 10;
 	enemyHspd = 0;
 	enemyVspd = 0;
-	enemyInvulnerabiltyTimer = 0;
+	enemyInvulnerabilityTimer = 0;
 	enemyTarget = 0;
 	x = 0;
 	y = 0;
@@ -31,7 +31,7 @@ function EnemyParam(eX, eY, eHealth, eMaxHealth, eContactDamage, eInvulnerabilit
 	enemyHealth = eHealth;
 	enemyHspd = 0;
 	enemyVspd = 0;
-	enemyInvulnerabiltyTimer = 0;
+	enemyInvulnerabilityTimer = 0;
 	enemyTarget = 0;
 	x = eX;
 	y = eY;
@@ -67,6 +67,15 @@ function enemyMovement()
 
 	x += enemyHspd;
 	y += enemyVspd;
+	
+	//Sprite stuff
+	if (sign(enemyHspd) != 0) {
+		image_speed = 1;
+		image_xscale = sign(enemyHspd)
+	} else {
+		image_speed = 0;		
+		image_index = 0;
+	}
 }
 
 function enemyInitializeTarget(enemyTargetOffset)

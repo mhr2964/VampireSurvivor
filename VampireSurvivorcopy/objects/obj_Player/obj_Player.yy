@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_Player",
   "spriteId": {
-    "name": "spr_playerBox",
-    "path": "sprites/spr_playerBox/spr_playerBox.yy",
+    "name": "spr_belmont",
+    "path": "sprites/spr_belmont/spr_belmont.yy",
   },
   "solid": false,
   "visible": true,

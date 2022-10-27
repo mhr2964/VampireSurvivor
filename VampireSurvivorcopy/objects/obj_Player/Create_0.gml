@@ -103,6 +103,7 @@ function playerCollision() {
 }
 
 function playerMovement() {
+	//Movement
 	playerDir = point_direction(0, 0, keyboard_check(global.rightKey) - keyboard_check(global.leftKey), keyboard_check(global.downKey) - keyboard_check(global.upKey));
 	playerHspd = lengthdir_x(playerSpeed * (keyboard_check(global.rightKey) - keyboard_check(global.leftKey) != 0), playerDir);
 	playerVspd = lengthdir_y(playerSpeed * (keyboard_check(global.downKey) - keyboard_check(global.upKey) != 0), playerDir);
@@ -114,8 +115,6 @@ function playerMovement() {
 	}
 	x += playerHspd;
 	
-	
-	
 	if (place_meeting(x, y + playerVspd + sign(playerVspd) * sprite_height / 2, obj_Wall)) {
 		while (!place_meeting(x, y + sign(playerVspd) + sign(playerVspd) * sprite_height / 2, obj_Wall)) {
 			y += sign(playerVspd);	
@@ -124,7 +123,15 @@ function playerMovement() {
 	}
 	y += playerVspd;
 	
-
+	//Sprite stuff
+	if (sign(playerHspd) != 0) {
+		image_speed = 1;
+		image_xscale = sign(playerHspd)
+	} else {
+		image_speed = 0;		
+		image_index = 0;
+	}
+	
 }
 
 function playerLevelUp() {
