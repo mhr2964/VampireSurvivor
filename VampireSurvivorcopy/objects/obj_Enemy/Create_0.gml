@@ -94,6 +94,7 @@ function enemyUpdateTarget()
 function enemyTakeDamage(damage)
 {
 	enemyHealth -= damage;
+	enemyInvulnerabilityTimer = enemyInvulnerabilityFrames;
 }
 
 function enemyCollision()
