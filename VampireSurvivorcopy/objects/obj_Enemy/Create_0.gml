@@ -6,6 +6,7 @@ function EnemyDefault(){
 	enemyHspd = 0;
 	enemyVspd = 0;
 	enemyInvulnerabiltyTimer = 0;
+	enemyTarget = 0;
 	x = 0;
 	y = 0;
 	
@@ -31,6 +32,7 @@ function EnemyParam(eX, eY, eHealth, eMaxHealth, eContactDamage, eInvulnerabilit
 	enemyHspd = 0;
 	enemyVspd = 0;
 	enemyInvulnerabiltyTimer = 0;
+	enemyTarget = 0;
 	x = eX;
 	y = eY;
 	
