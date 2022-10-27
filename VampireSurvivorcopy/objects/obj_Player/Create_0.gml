@@ -3,7 +3,7 @@
 function Player() {
 	//Stat Variables
 	playerDefense = 0;
-	playerMaxHealth = 10;
+	playerMaxHealth = 1000;
 	playerSpeed = 5;
 	playerRegen = 0; // This added to the playerHealth every frame, so make sure it's low like 0.0001 or some shit like that
 	playerCollisionDamage = 0;
