@@ -1,3 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
-
+projectileDuration -= 1;
+if (projectileDuration <= 0)
+{
+	projectileOnEnd();	
+}
+projectileMovement();
