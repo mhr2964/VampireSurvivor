@@ -6,7 +6,7 @@ function Pickup(typeNum) {
 	mapx = x;
 	mapy = y
 	magnetized = false;
-	moveSpeed = 10;
+	moveSpeed = 5;
 	image_speed = 0;
 	
 }

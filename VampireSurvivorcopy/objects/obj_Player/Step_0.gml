@@ -19,3 +19,10 @@ if (playerEXP >= playerEXPThreshold) {
 playerHeal(playerRegen);
 
 playerCollision();
+
+
+
+//PLay test shoot weapon
+if (keyboard_check_pressed(ord("P"))) {
+	var proj = instance_create_layer(x, y, "Instances", obj_Projectile);
+}

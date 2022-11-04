@@ -1,4 +1,9 @@
 
-if (candleDeathTimer != -1) draw_set_alpha(candleDeathTimer / 60);
+if (candleDeathTimer != -1) {
+	image_alpha = candleDeathTimer / candleDeathTime;
+}
 draw_self();
-draw_set_alpha(1);
+
+if (global.Debug) {
+	draw_text(x, y - 80, candleDeathTimer);	
+}

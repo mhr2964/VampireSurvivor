@@ -5,6 +5,7 @@ function ProjectileDefault()
 	projectileLevel = 1;
 	projectilePiercing = 1;
 	projectileType = "test";
+	image_speed = 0;
 }
 ProjectileDefault();
 

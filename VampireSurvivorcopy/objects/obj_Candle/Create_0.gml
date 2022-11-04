@@ -1,5 +1,6 @@
 function Candle() {
 	candleDeathTimer = -1;
+	candleDeathTime = 15;
 	//candleDeathTimer value is set to 60
 	
 	//Refer to Obsidian for how these drop chances work

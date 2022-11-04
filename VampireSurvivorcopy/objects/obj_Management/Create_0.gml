@@ -14,3 +14,5 @@ function magenetizeAll() {
 function screenWipe() {
 	
 }
+
+global.Debug = true;
