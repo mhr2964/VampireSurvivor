@@ -26,6 +26,11 @@ function Player() {
 	playerHspd = 0;
 	playerDir = 0; 
 	
+	playerWeaponLvlList = ds_list_create();
+	//Initialize playerWeaponLvlList
+	for (var i = 0; i < sprite_get_number(spr_weapon); i++) {
+		ds_list_add(playerWeaponLvlList, 0);
+	}
 
 }
 
@@ -175,6 +180,8 @@ function playerTakeDamage(damage) {
 function openChest() {
 		
 }
+
+
 
 
 Player();
