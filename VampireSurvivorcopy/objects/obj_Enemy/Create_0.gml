@@ -12,7 +12,7 @@ function EnemyDefault(){
 	
 	//StatVariables
 	enemyContactDamage = 10;
-	enemyInvulnerabilityFrames = 5;
+	enemyInvulnerabilityFrames = 20;
 	enemyMaxHealth = 10;
 	enemySpeed = 1;
 	
