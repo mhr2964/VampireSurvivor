@@ -45,7 +45,7 @@ function projectileMovement()
 			break;
 		case 1:
 			//Axe
-			image_xscale = projectileDirection;
+			//image_xscale = projectileDirection;
 			image_angle += projectileRotationSpeed;
 			x += projectileXSpeed;
 			y += projectileYSpeed;
@@ -118,10 +118,10 @@ function projectileTypePreset(type, lvl) {
 			if (lvl >= 1) projectileDamage += 5;
 			if (lvl >= 2) projectilePiercing += 1;
 			if (lvl >= 3) projectileExtraAmount += 1;
-			if (lvl >= 4) projectileMoveSpeed += 5;
+			if (lvl >= 4) projectileDamage += 5;
 			if (lvl >= 5) projectileDamage += 5;
 			if (lvl >= 6) projectileExtraAmount += 1;
-			if (lvl >= 7) projectileMoveSpeed += 5;
+			if (lvl >= 7) projectileDamage += 5;
 			if (lvl >= 8) projectilePiercing += 1;
 			if (lvl >= 9) projectileExtraAmount += 1;
 			if (lvl >= 10) {
