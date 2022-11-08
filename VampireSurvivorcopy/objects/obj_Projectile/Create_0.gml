@@ -45,7 +45,7 @@ function projectileMovement()
 			break;
 		case 1:
 			//Axe
-			//image_xscale = projectileDirection;
+			image_xscale = projectileDirection;
 			image_angle += projectileRotationSpeed;
 			x += projectileXSpeed;
 			y += projectileYSpeed;
