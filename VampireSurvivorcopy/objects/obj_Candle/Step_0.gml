@@ -21,4 +21,5 @@ if (candleDeathTimer > 0) {
 
 if (place_meeting(x, y, obj_Projectile)) && (candleDeathTimer == -1) {
 	candleDeathTimer = candleDeathTime;
+	instance_place(x, y, obj_Projectile).projectilePiercing--;
 }
