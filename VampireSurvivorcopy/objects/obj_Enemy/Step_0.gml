@@ -2,10 +2,13 @@ enemyUpdateTarget();
 enemyMovement();
 
 //Invulnerability Logic
-enemyInvulnerabilityTimer -= 1;
+if (enemyInvulnerabilityTimer > 0) enemyInvulnerabilityTimer -= 1;
+
+enemyCollision()
 
 //Death
 if (enemyHealth <= 0)
 {
 	enemyDeath();	
 }
+

@@ -9,7 +9,7 @@ if (playerInvulnerabilityTimer > 0) playerInvulnerabilityTimer--;
 
 
 playerMovement();
-//playerCollision();
+
 if (playerEXP >= playerEXPThreshold) {
 	playerLevelUp()
 }

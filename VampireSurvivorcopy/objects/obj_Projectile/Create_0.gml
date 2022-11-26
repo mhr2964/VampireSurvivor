@@ -10,6 +10,7 @@ function ProjectileDefault()
 	destroyOffScreen = true;
 	projectileMoveSpeed = 5;
 	projectileCooldown = 60;
+	projectileKnockback = 5;
 	
 	projectileDirection = 1;
 	projectileTypePreset(1, 0);
@@ -78,6 +79,7 @@ function projectileTypePreset(type, lvl) {
 			projectilePiercing = 1;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
+			projectileKnockback = 10;
 			
 			if (lvl >= 1) projectileDamage += 5;
 			if (lvl >= 2) projectilePiercing += 1;
@@ -114,6 +116,7 @@ function projectileTypePreset(type, lvl) {
 			projectilePiercing = 100;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
+			projectileKnockback = 20;
 			
 			if (lvl >= 1) projectileDamage += 5;
 			if (lvl >= 2) projectilePiercing += 1;

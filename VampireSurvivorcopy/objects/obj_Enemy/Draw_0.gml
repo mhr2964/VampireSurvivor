@@ -1,4 +1,5 @@
 draw_self();
+draw_text(x, y - 16, "EnemyHealth: " + string(enemyHealth));
 draw_text(x, y - 32, "Target: " + string(obj_Player.x + enemyTarget) + ", " + string(obj_Player.y + enemyTarget));
 draw_text(x, y - 52, "Position: " + string(x) + ", " + string(y));
 draw_text(x, y - 72, "Vspd: " + string(enemyVspd));
@@ -14,4 +15,7 @@ else
 }
 draw_healthbar(x - 32, y - 38 + 100, x + 32, y - 48 + 100, (enemyHealth / enemyMaxHealth) * 100, c_black, c_black, c_green, 1, true, true);
 
+show_debug_message((enemyHealth / enemyMaxHealth));
 
+show_debug_message(enemyHealth);
+show_debug_message(enemyMaxHealth);

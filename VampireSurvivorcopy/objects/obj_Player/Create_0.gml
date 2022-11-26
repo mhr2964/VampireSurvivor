@@ -42,9 +42,12 @@ function playerCollision() {
 		var enemyRef = instance_place(x, y, obj_Enemy);
 		with (enemyRef) {
 			//Enemy takes damage from player collision here
+			enemyHealth -= other.playerCollisionDamage
+			enemyInvulnerabilityTimer = enemyInvulnerabilityTimer
 		}
 		if (instance_exists(enemyRef)) { //important becasue enemy may die to player collision
 			playerTakeDamage(enemyRef.enemyContactDamage);
+			playerInvulnerabilityTimer = playerInvulnerabilityTimer;
 		}
 		//Play player take damage sfx here if sound isn't already playing
 	}

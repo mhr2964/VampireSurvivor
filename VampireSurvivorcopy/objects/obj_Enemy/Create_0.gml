@@ -2,7 +2,7 @@
 function EnemyDefault(){
 	//EnemySystemVariables
 	enemyDir = 0;
-	enemyHealth = 10;
+	
 	enemyHspd = 0;
 	enemyVspd = 0;
 	enemyInvulnerabilityTimer = 0;
@@ -13,7 +13,8 @@ function EnemyDefault(){
 	//StatVariables
 	enemyContactDamage = 10;
 	enemyInvulnerabilityFrames = 20;
-	enemyMaxHealth = 10;
+	enemyMaxHealth = 100;
+	enemyHealth = enemyMaxHealth;
 	enemySpeed = 1;
 	
 	//MiscVariables
@@ -106,8 +107,23 @@ function enemyTakeDamage(damage)
 	enemyInvulnerabilityTimer = enemyInvulnerabilityFrames;
 }
 
-function enemyCollision()
+function enemyCollision() 
 {
-	//Fill in 
+	//Projectile Collision
+	if (place_meeting(x, y, obj_Projectile)) {
+		var projRef = instance_place(x, y, obj_Projectile);
+		enemyTakeDamage(projRef.projectileDamage)
+		//Collision
+		var dirr = point_direction(obj_Player.x, obj_Player.y, x, y);
+		x += lengthdir_x(projRef.projectileKnockback, dirr);
+		y += lengthdir_y(projRef.projectileKnockback, dirr);
+		
+		//Deal with projectile piercing
+		with (projRef) {
+			if (projectilePiercing - 1 < 0) projectileOnEnd();
+			else projectilePiercing -= 1;	
+			
+		}
+		
+	}
 }
-
