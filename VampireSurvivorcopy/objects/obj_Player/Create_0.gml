@@ -27,12 +27,45 @@ function Player() {
 	playerDir = 0; 
 	
 	playerWeaponLvlList = ds_list_create();
+	playerWeaponCoolDownList = ds_list_create();
 	//Initialize playerWeaponLvlList
 	for (var i = 0; i < sprite_get_number(spr_weapon); i++) {
-		ds_list_add(playerWeaponLvlList, 0);
+		ds_list_add(playerWeaponLvlList, -1);
+		ds_list_add(playerWeaponCoolDownList, -1); 
 	}
-
+	//Knife testing
+	ds_list_set(playerWeaponLvlList, 0, 0);
+	ds_list_set(playerWeaponCoolDownList, 0, 60);
 }
+
+function playerWeapons() {
+	//First tick down all weaponcooldowns every frame
+	for (var i = 0; i < ds_list_size(playerWeaponCoolDownList); i++) {
+		var cd = ds_list_find_value(playerWeaponCoolDownList, i);
+		if (cd != -1) {
+			if (cd - 1 == 0) {
+				//Shoot weapon
+				
+				
+			} else {
+				ds_list_set(playerWeaponCoolDownList, i, cd - 1);
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	//Spawn a weapon if its weaponcooldown hits 0
+	
+	//Figure out what to do if the weapon shoots more than once
+	
+}
+function playerShootWeapon(type, lvl) {
+	
+} 
+
 
 
 
