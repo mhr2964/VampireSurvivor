@@ -28,7 +28,7 @@ if (global.Debug) {
 	if (keyboard_check_pressed(ord("P"))) {
 		//Test knife shot
 		//scr_createProjectile(1, 0);
-		scr_createProjectile(2, 0);
+		scr_createProjectile(3, 0);
 	}
 	
 	if (keyboard_check_pressed(ord("E"))) {

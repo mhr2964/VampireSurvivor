@@ -11,10 +11,12 @@ function projectileMovement()
 {
 	switch(projectileType)
 	{
+		#region TEST
 		case "test":
 			x += lengthdir_x(3, point_direction(x, y, obj_Enemy.x, obj_Enemy.y));
 			y += lengthdir_y(3, point_direction(x, y, obj_Enemy.x, obj_Enemy.y));
 			break;
+		#endregion
 		#region Knife
 		case 0:
 			//Knife
@@ -35,27 +37,49 @@ function projectileMovement()
 			}
 			break;
 			#endregion
+		#region HolyWater
 		case 2:
 			//HolyWater
 			if (abs(y - projectileYStart) < projectileFallDistance && y + 5 < 1000)
 			{
-			image_angle += projectileRotationSpeed;
-			x += projectileXSpeed;
-			y -= projectileYSpeed;
-			projectileDuration++;	
+				image_angle += projectileRotationSpeed;
+				x += projectileXSpeed;
+				y -= projectileYSpeed;
+				projectileDuration++;	
 			}
 			else
 			{
-			if (!projectileActive)
-			{
-				projectileActive = true;
-				image_xscale = projectilePoolArea;
-				image_yscale = projectilePoolArea;
-				sprite_index = spr_pool;
-				depth = 100;
-			}
+				if (!projectileActive)
+				{
+					projectileActive = true;
+					image_xscale = projectilePoolArea;
+					image_yscale = projectilePoolArea;
+					sprite_index = spr_pool;
+					depth = 100;
+				}
 			}
 			break;
+		#endregion
+		#region Cross
+		case 3:
+			//Cross
+			image_angle += projectileRotationSpeed;
+			x += projectileXSpeed;
+			y += projectileYSpeed;
+			if (abs(projectileXSpeed) < projectileMaxSpeed)
+			{
+				projectileXSpeed -= projectileGravityX;
+			}
+			if (abs(projectileYSpeed) < projectileMaxSpeed)
+			{
+				projectileYSpeed -= projectileGravityY;
+			}
+			if (projectileXSpeed * projectileGravityX * projectileYSpeed * projectileGravityY >= 0)
+			{
+				projectileDestroyOffScreen = true;	
+			}
+			break;
+			#endregion
 	}
 }
 
@@ -143,7 +167,7 @@ function projectileTypePreset(type, lvl) {
 			}
 			break;
 			#endregion		
-		#region
+		#region HolyWater
 		case 2:
 			//holyWater 
 			//unchanging stuff
@@ -182,9 +206,50 @@ function projectileTypePreset(type, lvl) {
 				projectileDamage += 1;
 				projectileExtraAmount += 1;
 				projectilePoolArea += 1;
+			}
 			break;
 			#endregion
+		#region Cross
+		case 3:
+			//cross 
+			//unchanging stuff
+			projectileDestroyOffScreen = false;
+			projectileDuration = 600;
+			projectileMoveSpeed = 10;
+			//projectileGravity = .3;
+			projectileXSpeed = random_range(projectileMoveSpeed * -1, projectileMoveSpeed);
+			projectileXSpeed = clamp(projectileXSpeed, sign(projectileXSpeed) * projectileMoveSpeed / 2, sign(projectileXSpeed) * projectileMoveSpeed);
+			projectileYSpeed = random_range(projectileMoveSpeed * -1, projectileMoveSpeed);
+			projectileYSpeed = clamp(projectileYSpeed, sign(projectileYSpeed) * projectileMoveSpeed / 2, sign(projectileYSpeed) * projectileMoveSpeed);
+			projectileGravityX = 0.015 * projectileXSpeed;
+			projectileGravityY = 0.015 * projectileYSpeed;
+			projectileMaxSpeed = 20;
+			projectileRotationSpeed = 6;
+			
+			//Base lvl 0 stats
+			projectileDamage = 1;
+			projectileExtraAmount = 0;
+			projectilePiercing = 9999;
+			projectileCooldown = 60;
+			projectileKnockback = 5;
+			projectileTimeBetweenShots = 10;
+			
+			if (lvl >= 1) projectileDamage += 5;
+			if (lvl >= 2) projectileMoveSpeed += 1;
+			if (lvl >= 3) projectileExtraAmount += 1;
+			if (lvl >= 4) projectileDamage += 5;
+			if (lvl >= 5) projectileDamage += 5;
+			if (lvl >= 6) projectileExtraAmount += 1;
+			if (lvl >= 7) projectileDamage += 5;
+			if (lvl >= 8) projectileMoveSpeed += 1;
+			if (lvl >= 9) projectileExtraAmount += 1;
+			if (lvl >= 10) {
+				projectileDamage += 10;
+				projectileExtraAmount += 1;
+				projectilePiercing += 1;
+				projectileMoveSpeed += 1;
 			}
+			break;	
+			#endregion
 	}
 }
-
