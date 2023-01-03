@@ -15,3 +15,12 @@ if (keyboard_check_pressed(ord("1"))) {
 if (keyboard_check_pressed(ord("2"))) {
 	room_goto(room_MichaelTesting);	
 }
+
+
+if (keyboard_check_pressed(ord("Q"))) {
+	if (global.Pause = false) {
+		Pause();
+	} else {
+		unPause();
+	}
+}

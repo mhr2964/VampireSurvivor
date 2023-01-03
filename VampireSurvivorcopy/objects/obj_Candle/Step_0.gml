@@ -12,8 +12,7 @@ if (candleDeathTimer > 0) {
 			if (val >= randomnum) break;
 			
 		}
-		var pickup = instance_create_layer(x, y, "Instances", obj_Pickup);
-		pickup.Pickup(i);
+		var pickup = scr_createPickup(i)
 		instance_destroy();		
 	}
 }

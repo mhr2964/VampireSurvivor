@@ -30,5 +30,9 @@ if (global.Debug) {
 		//scr_createProjectile(1, 0);
 		scr_createProjectile(2, 0);
 	}
+	
+	if (keyboard_check_pressed(ord("E"))) {
+		playerLevelUp();
+	}
 
 }

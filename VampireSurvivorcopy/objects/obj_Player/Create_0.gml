@@ -193,13 +193,11 @@ function playerLevelUp() {
 	playerLevel += 1;
 	playerEXPThreshold = sqr(playerLevel);
 	show_message("playerlevelUp");
-	newLevelUpItem();
-	
+	with (obj_Management) {
+		newLevelUpItem();
+	}
 }
 
-function newLevelUpItem() {
-	show_message("newLevelUpItem ran");
-}
 
 function playerHeal(healAmount) {
 	playerHealth += healAmount;
