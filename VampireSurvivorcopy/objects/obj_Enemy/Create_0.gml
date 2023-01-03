@@ -112,17 +112,19 @@ function enemyCollision()
 	//Projectile Collision
 	if (place_meeting(x, y, obj_Projectile)) {
 		var projRef = instance_place(x, y, obj_Projectile);
-		enemyTakeDamage(projRef.projectileDamage)
-		//Collision
-		var dirr = point_direction(obj_Player.x, obj_Player.y, x, y);
-		x += lengthdir_x(projRef.projectileKnockback, dirr);
-		y += lengthdir_y(projRef.projectileKnockback, dirr);
+		if (projRef.projectileActive)
+		{
+			enemyTakeDamage(projRef.projectileDamage)
+			//Collision
+			var dirr = point_direction(obj_Player.x, obj_Player.y, x, y);
+			x += lengthdir_x(projRef.projectileKnockback, dirr);
+			y += lengthdir_y(projRef.projectileKnockback, dirr);
 		
-		//Deal with projectile piercing
-		with (projRef) {
-			if (projectilePiercing - 1 < 0) projectileOnEnd();
-			else projectilePiercing -= 1;	
-			
+			//Deal with projectile piercing
+			with (projRef) {
+				if (projectilePiercing - 1 < 0) projectileOnEnd();
+				else projectilePiercing -= 1;	
+			}
 		}
 		
 	}
