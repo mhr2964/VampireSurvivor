@@ -28,10 +28,12 @@ function Player() {
 	
 	playerWeaponLvlList = ds_list_create();
 	playerWeaponCoolDownList = ds_list_create();
+	playerWeaponExtraAmountList = ds_list_create();
 	//Initialize playerWeaponLvlList
 	for (var i = 0; i < sprite_get_number(spr_weapon); i++) {
 		ds_list_add(playerWeaponLvlList, -1);
 		ds_list_add(playerWeaponCoolDownList, -1); 
+		ds_list_add(playerWeaponExtraAmountList, 0);
 	}
 	//Knife testing
 	ds_list_set(playerWeaponLvlList, 0, 0);
@@ -50,7 +52,21 @@ function playerWeapons() {
 				//Shoot weapon
 				var proj = scr_createProjectile(i, ds_list_find_value(playerWeaponLvlList, i));
 				
-				ds_list_set(playerWeaponCoolDownList, i, proj.projectileCooldown);
+				//Set cooldown
+				if (proj.projectileExtraAmount != 0) && (ds_list_find_value(playerWeaponExtraAmountList, i) == 0) {
+					//Shooting multiple projectiles
+					ds_list_set(playerWeaponExtraAmountList, i, proj.projectileExtraAmount);
+				} 
+				
+				if (ds_list_find_value(playerWeaponExtraAmountList, i) != 0) {
+					ds_list_set(playerWeaponCoolDownList, i, proj.projectileTimeBetweenShots);
+					ds_list_set(playerWeaponExtraAmountList, i, ds_list_find_value(playerWeaponExtraAmountList, i) - 1);
+					if (ds_list_find_value(playerWeaponExtraAmountList, i) == 0) ds_list_set(playerWeaponCoolDownList, i, proj.projectileCooldown);
+				} else {
+					ds_list_set(playerWeaponCoolDownList, i, proj.projectileCooldown);
+				}
+				
+				
 			} else {
 				ds_list_set(playerWeaponCoolDownList, i, cd - 1);
 			}

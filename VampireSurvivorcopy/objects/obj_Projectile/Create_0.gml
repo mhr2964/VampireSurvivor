@@ -1,3 +1,19 @@
+function Projectile(type, lvl) {
+	projectileTypePreset(type, lvl);
+	image_speed = 0;
+	switch (type) {
+		case 0:
+			//knife
+			projectileDirection = obj_Player.image_xscale;
+			break;
+		case 1:
+			//axe
+			projectileDirection = obj_Player.image_xscale;
+			break;
+	}
+}
+	
+
 
 
 function projectileOnEnd()
@@ -180,3 +196,4 @@ function projectileTypePreset(type, lvl) {
 	}
 }
 
+Projectile();
