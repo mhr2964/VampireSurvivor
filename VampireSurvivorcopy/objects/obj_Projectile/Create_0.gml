@@ -143,6 +143,7 @@ function projectileTypePreset(type, lvl) {
 			}
 			break;
 			#endregion		
+		#region
 		case 2:
 			//holyWater 
 			//unchanging stuff
@@ -178,12 +179,11 @@ function projectileTypePreset(type, lvl) {
 			if (lvl >= 8) projectilePoolArea += 1;
 			if (lvl >= 9) projectileExtraAmount += 1;
 			if (lvl >= 10) {
-				projectileDamage += 10;
+				projectileDamage += 1;
 				projectileExtraAmount += 1;
-				projectilePiercing += 1;
-				projectileMoveSpeed += 1;
+				projectilePoolArea += 1;
 			break;
-		
+			#endregion
 			}
 	}
 }
