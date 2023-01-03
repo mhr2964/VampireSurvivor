@@ -10,6 +10,10 @@ function Projectile(type, lvl) {
 			//axe
 			projectileDirection = obj_Player.image_xscale;
 			break;
+		case 2:
+			//axe
+			projectileDirection = obj_Player.image_xscale;
+			break;
 	}
 }
 	
@@ -47,24 +51,10 @@ function projectileMovement()
 			break;
 		case 2:
 			//HolyWater
-			if (abs(y) - abs(projectileYStart) >= 500)
-			{
-				//projectilePool = true;
-				//image_blend = c_blue;
-				//image_xscale = 5;
-				//image_yscale = 5;
-			}
-			if (projectilePool)
-			{
-				image_blend = c_blue;
-			}
-			else
-			{
-				image_angle += projectileRotationSpeed;
-				x += projectileXSpeed;
-				y -= projectileYSpeed;
-				projectileDuration++;	
-			}
+			image_angle += projectileRotationSpeed;
+			x += projectileXSpeed;
+			y -= projectileYSpeed;
+			projectileDuration++;	
 			break;
 	}
 }
