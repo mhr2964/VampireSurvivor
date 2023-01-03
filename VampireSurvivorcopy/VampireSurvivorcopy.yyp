@@ -24,6 +24,7 @@
     {"id":{"name":"scr_createPlayer","path":"scripts/scr_createPlayer/scr_createPlayer.yy",},"order":4,},
     {"id":{"name":"spr_candle","path":"sprites/spr_candle/spr_candle.yy",},"order":10,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":1,},
+    {"id":{"name":"spr_passiveItems","path":"sprites/spr_passiveItems/spr_passiveItems.yy",},"order":15,},
     {"id":{"name":"spr_walls","path":"sprites/spr_walls/spr_walls.yy",},"order":2,},
     {"id":{"name":"obj_Candle","path":"objects/obj_Candle/obj_Candle.yy",},"order":5,},
     {"id":{"name":"room_FletcherTesting","path":"rooms/room_FletcherTesting/room_FletcherTesting.yy",},"order":0,},

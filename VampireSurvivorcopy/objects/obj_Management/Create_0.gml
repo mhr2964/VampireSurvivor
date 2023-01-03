@@ -38,6 +38,6 @@ function newLevelUpItem() {
 		Each upgrade is either an upgrade to a 
 		an upgrade to a passive
 		or a new iweapon or passive
-	
+		
 	*/
 }

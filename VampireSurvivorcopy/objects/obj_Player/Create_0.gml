@@ -2,14 +2,21 @@
 
 function Player() {
 	//Stat Variables
-	playerDefense = 0;
-	playerMaxHealth = 1000;
+	/*
+	
 	playerSpeed = 5;
 	playerRegen = 0; // This added to the playerHealth every frame, so make sure it's low like 0.0001 or some shit like that
-	playerCollisionDamage = 0;
+	
 	playerRevives = 0;
-	playerInvulnerabilityFrames = 10;
+	
 	playerMagnetRadius = 100;
+	playerExpMultiplyer = 1;
+	playerMoneyMultiplyer = 1;*/
+	playerCollisionDamage = 0;
+	playerInvulnerabilityFrames = 10;
+	playerDefense = 0;
+	playerMaxHealth = 1000;
+	playerRevives = 0;
 	
 	//Exp Variables
 	playerEXP = 0;
@@ -26,11 +33,14 @@ function Player() {
 	playerHspd = 0;
 	playerDir = 0; 
 	
+	
+	//Player Weapon initializing
 	playerWeaponLvlList = ds_list_create();
 	playerWeaponCoolDownList = ds_list_create();
 	playerWeaponExtraAmountList = ds_list_create();
 	//Initialize playerWeaponLvlList
 	for (var i = 0; i < sprite_get_number(spr_weapon); i++) {
+		//Set to -1 so that because weapon lvls start at 0 (first level when you aquire them) - 1 means that you don't have weapon
 		ds_list_add(playerWeaponLvlList, -1);
 		ds_list_add(playerWeaponCoolDownList, -1); 
 		ds_list_add(playerWeaponExtraAmountList, 0);
@@ -41,6 +51,16 @@ function Player() {
 	//Axe testing
 	ds_list_set(playerWeaponLvlList, 1, 0);
 	ds_list_set(playerWeaponCoolDownList, 1, 30);
+	
+	//Player Passive Ability Initializing
+	playerPassiveList = ds_list_create();
+	for (var i = 0; i < sprite_get_number(spr_passiveItems); i++) {
+		//Set to 0 because passive lvls start at 0, and player starts with all passives
+		ds_list_add(playerPassiveList, 0);
+		passiveTypePreset(i, 0);
+	}
+	
+	
 }
 
 function playerWeapons() {
@@ -73,14 +93,37 @@ function playerWeapons() {
 		}
 	}
 	
-	
-	//Spawn a weapon if its weaponcooldown hits 0
-	
-	//Figure out what to do if the weapon shoots more than once
-	
 }
 
-
+function passiveTypePreset(type, lvl) {
+	switch (type) {
+		case 0:
+			//Regen
+			playerRegen = 0 + lvl * 0.1;
+			return playerRegen;
+			break;
+		case 1:
+			playerMagnetRadius = 100 + lvl * 10;
+			return playerMagnetRadius;
+			break;
+		case 2:
+			playerSpeed = 5 + lvl * 0.25;
+			return playerSpeed;
+			break;
+		case 3:
+			playerRevives += lvl;
+			return playerRevives;
+			break;
+		case 4:
+			playerExpMultiplyer = 1 + lvl * 0.1;
+			return playerExpMultiplyer;
+			break;
+		case 5:
+			playerMoneyMultiplyer = 1 + lvl * 0.1;
+			return playerMoneyMultiplyer
+			break;
+	}
+}
 
 
 
@@ -105,23 +148,23 @@ function playerCollision() {
 		switch (pickupRef.type) {
 			case 0:
 				//SmallExpPickup + 1 exp
-				playerEXP += 1;
+				playerEXP += 1 * playerExpMultiplyer;
 				break;
 			case 1:
 				//MediumEXP pickup + 100
-				playerEXP += 100;
+				playerEXP += 100 * playerExpMultiplyer;
 				break;
 			case 2:
 				//largeEXP pickup + 1000 exp
-				playerEXP += 1000;
+				playerEXP += 1000 * playerExpMultiplyer;
 				break;
 			case 3:
 				//Goldocoin pickup + 1 to money
-				playerMoney += 1;
+				playerMoney += 1 * playerMoneyMultiplyer;
 				break;
 			case 4:
 				//Golba bag pickup + 10 to money
-				playerMoney += 10;
+				playerMoney += 10 * playerMoneyMultiplyer;
 				break;
 			case 5:
 				//Wall chicken
