@@ -196,4 +196,3 @@ function projectileTypePreset(type, lvl) {
 	}
 }
 
-Projectile();
