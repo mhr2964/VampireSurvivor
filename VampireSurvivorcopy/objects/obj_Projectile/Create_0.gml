@@ -1,36 +1,3 @@
-function ProjectileDefault()
-{
-	/*parent = -1;
-	projectileDamage = 1;
-	projectileDuration = 200;
-	projectileLevel = 1;
-	projectilePiercing = 1;
-	projectileType = "test";
-	
-	projectileExtraAmount = 0;
-	destroyOffScreen = true;
-	projectileMoveSpeed = 5;
-	projectileCooldown = 60;
-	projectileKnockback = 5;
-	parent = -1;
-	*/
-	
-	image_speed = 0;
-	projectileTypePreset(1, 0);
-
-
-	switch (projectileType) {
-		case 0:
-			//knife
-			projectileDirection = obj_Player.image_xscale;
-			break;
-		case 1:
-			//axe
-			projectileDirection = obj_Player.image_xscale;
-			break;
-	}
-}
-
 
 
 function projectileOnEnd()
@@ -123,7 +90,7 @@ function projectileTypePreset(type, lvl) {
 			projectilePiercing = 1;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
-			projectileKnockback = 3;
+			projectileKnockback = 20;
 			
 			if (lvl >= 1) projectileDamage += 5;
 			if (lvl >= 2) projectilePiercing += 1;
@@ -145,4 +112,3 @@ function projectileTypePreset(type, lvl) {
 	}
 }
 
-ProjectileDefault();

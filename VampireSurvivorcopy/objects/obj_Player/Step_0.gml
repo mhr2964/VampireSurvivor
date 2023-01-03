@@ -13,9 +13,9 @@ playerMovement();
 if (playerEXP >= playerEXPThreshold) {
 	playerLevelUp()
 }
+playerWeapons();
 
 
-//PlayerRegen
 playerHeal(playerRegen);
 
 playerCollision();
@@ -27,7 +27,7 @@ if (global.Debug) {
 	
 	if (keyboard_check_pressed(ord("P"))) {
 		//Test knife shot
-		var proj = instance_create_layer(x, y, "Instances", obj_Projectile);
+		scr_createProjectile(1, 0);
 	}
 
 }

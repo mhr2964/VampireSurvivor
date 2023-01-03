@@ -36,6 +36,9 @@ function Player() {
 	//Knife testing
 	ds_list_set(playerWeaponLvlList, 0, 0);
 	ds_list_set(playerWeaponCoolDownList, 0, 60);
+	//Axe testing
+	ds_list_set(playerWeaponLvlList, 1, 0);
+	ds_list_set(playerWeaponCoolDownList, 1, 30);
 }
 
 function playerWeapons() {
@@ -45,15 +48,13 @@ function playerWeapons() {
 		if (cd != -1) {
 			if (cd - 1 == 0) {
 				//Shoot weapon
+				var proj = scr_createProjectile(i, ds_list_find_value(playerWeaponLvlList, i));
 				
-				
+				ds_list_set(playerWeaponCoolDownList, i, proj.projectileCooldown);
 			} else {
 				ds_list_set(playerWeaponCoolDownList, i, cd - 1);
 			}
-			
 		}
-		
-		
 	}
 	
 	
@@ -62,9 +63,7 @@ function playerWeapons() {
 	//Figure out what to do if the weapon shoots more than once
 	
 }
-function playerShootWeapon(type, lvl) {
-	
-} 
+
 
 
 
