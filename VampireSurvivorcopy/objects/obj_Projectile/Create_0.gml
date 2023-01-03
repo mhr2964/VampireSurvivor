@@ -54,6 +54,7 @@ function projectileTypePreset(type, lvl) {
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
+			projectileTimeBetweenShots = 15;
 			
 			if (lvl >= 1) projectileDamage += 5;
 			if (lvl >= 2) projectilePiercing += 1;
@@ -91,6 +92,7 @@ function projectileTypePreset(type, lvl) {
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 20;
+			projectileTimeBetweenShots = 10;
 			
 			if (lvl >= 1) projectileDamage += 5;
 			if (lvl >= 2) projectilePiercing += 1;
