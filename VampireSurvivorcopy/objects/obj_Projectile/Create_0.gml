@@ -1,22 +1,4 @@
-function Projectile(type, lvl) {
-	projectileTypePreset(type, lvl);
-	image_speed = 0;
-	switch (type) {
-		case 0:
-			//knife
-			projectileDirection = obj_Player.image_xscale;
-			break;
-		case 1:
-			//axe
-			projectileDirection = obj_Player.image_xscale;
-			break;
-		case 2:
-			//axe
-			projectileDirection = obj_Player.image_xscale;
-			break;
-	}
-}
-	
+
 
 
 
@@ -135,9 +117,10 @@ function projectileTypePreset(type, lvl) {
 				projectileExtraAmount += 1;
 				projectilePiercing += 1;
 				projectileMoveSpeed += 1;
+			}
 			break;
 		
-			}
+			
 		case 2:
 			//holyWater 
 			//unchanging stuff

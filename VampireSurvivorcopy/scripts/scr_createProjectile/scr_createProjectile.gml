@@ -2,6 +2,7 @@
 function scr_createProjectile(type, lvl){
 	
 	var proj = instance_create_layer(x, y, "Projectiles", obj_Projectile);
+
 	with (proj) {
 		projectileTypePreset(type, lvl);
 		image_speed = 0;
