@@ -55,7 +55,7 @@ function projectileMovement()
 					image_xscale = projectilePoolArea;
 					image_yscale = projectilePoolArea;
 					sprite_index = spr_pool;
-					depth = 100;
+					depth = 550;
 				}
 			}
 			break;
@@ -74,7 +74,8 @@ function projectileMovement()
 			{
 				projectileYSpeed -= projectileGravityY;
 			}
-			if (projectileXSpeed * projectileGravityX * projectileYSpeed * projectileGravityY >= 0)
+			if (projectileXSpeed * projectileGravityX * projectileYSpeed * projectileGravityY >= 0 && 
+			   (abs(x - projectileStartPoint[0]) <= 5  && abs(y - projectileStartPoint[1]) <= 5))
 			{
 				projectileDestroyOffScreen = true;	
 			}
@@ -90,15 +91,16 @@ function projectileTypePreset(type, lvl) {
 	projectileType = type;
 	projectileLevel = lvl;
 	projectileActive = true;
+	projectileInvulnerabilityFrames = noone;
+	projectileDestroyOffScreen = false;
 	
 	switch (type) {
 		#region Knife
 		case 0:
 			//knife 
 			//unchanging stuff
-			destroyOffScreen = false;
+			projectileDestroyOffScreen = true;
 			projectileDuration = 600;
-			projectileActive = true;
 			
 			
 			//Base lvl 0 stats
@@ -133,7 +135,7 @@ function projectileTypePreset(type, lvl) {
 		case 1:
 			//axe 
 			//unchanging stuff
-			destroyOffScreen = true;
+			projectileDestroyOffScreen = true;
 			projectileDuration = 600;
 			projectileGravity = .3;
 			projectileXSpeed = random_range(-3, 3);
@@ -171,12 +173,12 @@ function projectileTypePreset(type, lvl) {
 		case 2:
 			//holyWater 
 			//unchanging stuff
-			destroyOffScreen = false;
 			projectileDuration = 200;
 			projectileXSpeed = 3;
 			projectileYSpeed = -10;
 			projectileRotationSpeed = 6;
 			projectileActive = false;
+			projectileInvulnerabilityFrames = 25;
 			
 			//Positioning
 			x = random_range(obj_Player.x - 700, obj_Player.x + 400);
@@ -185,7 +187,7 @@ function projectileTypePreset(type, lvl) {
 			projectileFallDistance = 1000;
 			
 			//Base lvl 0 stats
-			projectileDamage = .1;
+			projectileDamage = 2;
 			projectileExtraAmount = 0;
 			projectilePiercing = 9999;
 			projectileCooldown = 60;
@@ -193,13 +195,13 @@ function projectileTypePreset(type, lvl) {
 			projectileTimeBetweenShots = 10;
 			projectilePoolArea = 3;
 			
-			if (lvl >= 1) projectileDamage += .05;
+			if (lvl >= 1) projectileDamage += 1;
 			if (lvl >= 2) projectilePoolArea += 1;
 			if (lvl >= 3) projectileExtraAmount += 1;
-			if (lvl >= 4) projectileDamage += .05;
-			if (lvl >= 5) projectileDamage += .05;
+			if (lvl >= 4) projectileDamage += 1;
+			if (lvl >= 5) projectileDamage += 1;
 			if (lvl >= 6) projectileExtraAmount += 1;
-			if (lvl >= 7) projectileDamage += .05;
+			if (lvl >= 7) projectileDamage += 1;
 			if (lvl >= 8) projectilePoolArea += 1;
 			if (lvl >= 9) projectileExtraAmount += 1;
 			if (lvl >= 10) {
@@ -213,16 +215,15 @@ function projectileTypePreset(type, lvl) {
 		case 3:
 			//cross 
 			//unchanging stuff
-			projectileDestroyOffScreen = false;
 			projectileDuration = 600;
 			projectileMoveSpeed = 10;
-			//projectileGravity = .3;
 			projectileXSpeed = random_range(projectileMoveSpeed * -1, projectileMoveSpeed);
 			projectileXSpeed = clamp(projectileXSpeed, sign(projectileXSpeed) * projectileMoveSpeed / 2, sign(projectileXSpeed) * projectileMoveSpeed);
 			projectileYSpeed = random_range(projectileMoveSpeed * -1, projectileMoveSpeed);
 			projectileYSpeed = clamp(projectileYSpeed, sign(projectileYSpeed) * projectileMoveSpeed / 2, sign(projectileYSpeed) * projectileMoveSpeed);
 			projectileGravityX = 0.015 * projectileXSpeed;
 			projectileGravityY = 0.015 * projectileYSpeed;
+			projectileStartPoint = [x,y];
 			projectileMaxSpeed = 20;
 			projectileRotationSpeed = 6;
 			
@@ -246,7 +247,6 @@ function projectileTypePreset(type, lvl) {
 			if (lvl >= 10) {
 				projectileDamage += 10;
 				projectileExtraAmount += 1;
-				projectilePiercing += 1;
 				projectileMoveSpeed += 1;
 			}
 			break;	

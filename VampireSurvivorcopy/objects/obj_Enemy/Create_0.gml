@@ -107,6 +107,12 @@ function enemyTakeDamage(damage)
 	enemyInvulnerabilityTimer = enemyInvulnerabilityFrames;
 }
 
+function enemyTakeDamage(damage, frames)
+{
+	enemyHealth -= damage;
+	enemyInvulnerabilityTimer = frames;
+}
+
 function enemyCollision() 
 {
 	//Projectile Collision
@@ -114,7 +120,14 @@ function enemyCollision()
 		var projRef = instance_place(x, y, obj_Projectile);
 		if (projRef.projectileActive)
 		{
-			enemyTakeDamage(projRef.projectileDamage)
+			if (projRef.projectileInvulnerabilityFrames != noone)
+			{
+				enemyTakeDamage(projRef.projectileDamage, projRef.projectileInvulnerabilityFrames)
+			}
+			else
+			{
+				enemyTakeDamage(projRef.projectileDamage);
+			}
 			//Collision
 			var dirr = point_direction(obj_Player.x, obj_Player.y, x, y);
 			x += lengthdir_x(projRef.projectileKnockback, dirr);
