@@ -14,3 +14,4 @@ else
 	image_blend = c_white;	
 }
 draw_healthbar(x - 32, y - 38 + 100, x + 32, y - 48 + 100, (enemyHealth / enemyMaxHealth) * 100, c_black, c_black, c_green, 1, true, true);
+

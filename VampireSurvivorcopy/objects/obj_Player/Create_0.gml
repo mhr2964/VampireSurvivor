@@ -64,6 +64,13 @@ function Player() {
 }
 
 function playerWeapons() {
+	//If PlayerWeapon is set to 0, and the cd is -1, it'll start the timer for shootingt he weapon
+	for (var i = 0; i < ds_list_size(playerWeaponCoolDownList); i++) {
+		var cd = ds_list_find_value(playerWeaponCoolDownList, i);
+		if (cd == -1) && (ds_list_find_value(playerWeaponLvlList, i) != -1) ds_list_set(playerWeaponCoolDownList, i, 30);
+	}
+	
+	
 	//First tick down all weaponcooldowns every frame
 	for (var i = 0; i < ds_list_size(playerWeaponCoolDownList); i++) {
 		var cd = ds_list_find_value(playerWeaponCoolDownList, i);
@@ -96,10 +103,14 @@ function playerWeapons() {
 }
 
 function passiveTypePreset(type, lvl) {
+	//Sets Playerpassivelist info
+	ds_list_set(playerPassiveList, type, lvl);
+	
+	//Sets actual player stats
 	switch (type) {
 		case 0:
 			//Regen
-			playerRegen = 0 + lvl * 0.1;
+			playerRegen = 0 + lvl * 00.1;
 			return playerRegen;
 			break;
 		case 1:

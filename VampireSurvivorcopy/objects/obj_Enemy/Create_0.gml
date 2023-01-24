@@ -101,12 +101,6 @@ function enemyUpdateTarget()
 	}
 }
 
-function enemyTakeDamage(damage)
-{
-	enemyHealth -= damage;
-	enemyInvulnerabilityTimer = enemyInvulnerabilityFrames;
-}
-
 function enemyTakeDamage(damage, frames)
 {
 	enemyHealth -= damage;
@@ -126,7 +120,7 @@ function enemyCollision()
 			}
 			else
 			{
-				enemyTakeDamage(projRef.projectileDamage);
+				enemyTakeDamage(projRef.projectileDamage, enemyInvulnerabilityFrames);
 			}
 			//Collision
 			var dirr = point_direction(obj_Player.x, obj_Player.y, x, y);
