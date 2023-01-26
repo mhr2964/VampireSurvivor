@@ -85,6 +85,7 @@ function playerWeapons() {
 					ds_list_set(playerWeaponExtraAmountList, i, proj.projectileExtraAmount);
 				} 
 				
+				//Deal with Extra amount
 				if (ds_list_find_value(playerWeaponExtraAmountList, i) != 0) {
 					ds_list_set(playerWeaponCoolDownList, i, proj.projectileTimeBetweenShots);
 					ds_list_set(playerWeaponExtraAmountList, i, ds_list_find_value(playerWeaponExtraAmountList, i) - 1);
@@ -122,7 +123,7 @@ function passiveTypePreset(type, lvl) {
 			return playerSpeed;
 			break;
 		case 3:
-			playerRevives += lvl;
+			playerRevives = lvl;
 			return playerRevives;
 			break;
 		case 4:
