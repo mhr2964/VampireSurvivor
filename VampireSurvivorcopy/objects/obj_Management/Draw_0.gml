@@ -1,4 +1,4 @@
-if (LevelUpScreen == true) {
+if (levelUpScreen == true) {
 	//Draw the screen for levle up and let player choose an upgrade
 	draw_rectangle_color(room_width / 2 - room_width / 4, 
 		room_height / 8, 
@@ -8,7 +8,7 @@ if (LevelUpScreen == true) {
 		);
 	/*
 		Split it into 3
-		Use LevelUpChoices
+		Use levelUpChoices
 	*/
 	for (var i = 0; i < 3; i++) {
 		var x1 = room_width / 2 - room_width / 4;
@@ -25,17 +25,17 @@ if (LevelUpScreen == true) {
 		)
 
 		//Drawing icons for what is upgraded
-		draw_sprite(spr_upgradeIcons, LevelUpChoices[i], x1, y1 + (y2 - y1) / 2);
+		draw_sprite(spr_upgradeIcons, levelUpChoices[i], x1, y1 + (y2 - y1) / 2);
 		
 		
 		//Checking if mouse button is clicked in any of these boxes
 		if (mouse_check_button_pressed(mb_left)) {
 			if ((mouse_x >= x1) && (mouse_x <= x2) && (mouse_y > y1) && (mouse_y <= y2)) {
 				show_message("Level up option " + string(i) + " selected"); 
-				LevelUpScreen = false;
+				levelUpScreen = false;
 				unPause();
 				//I'm not making this a var because I need to use it with the with statement later
-				upgradeIndex = LevelUpChoices[i];
+				upgradeIndex = levelUpChoices[i];
 				
 				if (upgradeIndex < sprite_get_number(spr_weapon)) {
 					ds_list_set(obj_Player.playerWeaponLvlList, upgradeIndex, ds_list_find_value(obj_Player.playerWeaponLvlList, upgradeIndex) + 1);
@@ -87,3 +87,7 @@ if (instance_exists(obj_Player)) {
 		draw_text(xOffset + sWidth * 4, yOffset + sWidth * i + yDifference, "Value: " + string(obj_Player.passiveTypePreset(i, ds_list_find_value(obj_Player.playerPassiveList, i))));
 	}
 }
+
+
+//Draw Screenflash
+if (

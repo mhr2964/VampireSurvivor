@@ -1,5 +1,7 @@
-LevelUpScreen = false;
-LevelUpChoices = -1;
+levelUpScreen = false;
+levelUpChoices = -1;
+
+
 
 
 function gameOver() {
@@ -33,7 +35,7 @@ function unPause() {
 
 function newLevelUpItem() {
 	show_message("newLevelUpItem ran");
-	LevelUpScreen = true;
+	levelUpScreen = true;
 	/* Calculate Odds for levl upgrades 
 		- New Weapon or passive
 		- Upgrade to weapon or passive
@@ -57,7 +59,7 @@ function newLevelUpItem() {
 	for (var i = 0; i < 3; i++) {
 		var pick = irandom_range(0, ds_list_size(possibleindexes) - 1);
 		randomize();
-		LevelUpChoices[i] = ds_list_find_value(possibleindexes, pick);
+		levelUpChoices[i] = ds_list_find_value(possibleindexes, pick);
 		ds_list_delete(possibleindexes, pick);
 	}
 	

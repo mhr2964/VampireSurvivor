@@ -6,3 +6,5 @@
 - Chests
 - Bible
 - Screenwipe weapon
+
+- Fix how I'm doing constructors for each of them
