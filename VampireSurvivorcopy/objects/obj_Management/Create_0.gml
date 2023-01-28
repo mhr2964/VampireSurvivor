@@ -20,6 +20,7 @@ function screenWipe() {
 	with (obj_Enemy) {
 		enemyDeath();	
 	}
+	with (obj_Candle
 }
 
 global.Debug = true;
