@@ -89,5 +89,4 @@ if (instance_exists(obj_Player)) {
 }
 
 
-//Draw Screenflash
-if (
+
