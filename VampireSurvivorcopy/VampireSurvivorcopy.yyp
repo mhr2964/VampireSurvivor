@@ -6,7 +6,6 @@
     {"id":{"name":"spr_pickupSprite","path":"sprites/spr_pickupSprite/spr_pickupSprite.yy",},"order":3,},
     {"id":{"name":"todo","path":"notes/todo/todo.yy",},"order":0,},
     {"id":{"name":"room_MichaelTesting","path":"rooms/room_MichaelTesting/room_MichaelTesting.yy",},"order":1,},
-    {"id":{"name":"obj_Button","path":"objects/obj_Button/obj_Button.yy",},"order":7,},
     {"id":{"name":"scr_createPickup","path":"scripts/scr_createPickup/scr_createPickup.yy",},"order":3,},
     {"id":{"name":"spr_mummy","path":"sprites/spr_mummy/spr_mummy.yy",},"order":9,},
     {"id":{"name":"spr_weapon","path":"sprites/spr_weapon/spr_weapon.yy",},"order":11,},
