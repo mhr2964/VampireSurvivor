@@ -18,7 +18,16 @@ function EnemyDefault(){
 	enemySpeed = 1;
 	
 	//MiscVariables
-	enemyDropTable = undefined;
+	enemyDropTable = ds_list_create();
+	ds_list_add(enemyDropTable, 35);
+	ds_list_add(enemyDropTable, 15);
+	ds_list_add(enemyDropTable, 5);
+	ds_list_add(enemyDropTable, 20);
+	ds_list_add(enemyDropTable, 10);
+	ds_list_add(enemyDropTable, 0);
+	ds_list_add(enemyDropTable, 0);
+	ds_list_add(enemyDropTable, 0);
+	ds_list_add(enemyDropTable, 15)
 }
 
 //Initializing this Enemy's variables
@@ -49,6 +58,15 @@ function EnemyParam(eX, eY, eHealth, eMaxHealth, eContactDamage, eInvulnerabilit
 
 function enemyDeath() {
 	//Should also reference 
+	randomize();
+	var randomnum = irandom_range(1, 100);
+	var val = 0;
+	for (var i = 0; i < ds_list_size(enemyDropTable); i++) {
+		val += ds_list_find_value(enemyDropTable, i);
+		if (val >= randomnum) break;
+			
+	}
+	var pickup = scr_createPickup(i);
 	instance_destroy();
 }
 
