@@ -45,7 +45,7 @@ function newLevelUpItem() {
 	/* Calculate Odds for levl upgrades 
 		- New Weapon or passive
 		- Upgrade to weapon or passive
-		- Extra money
+		- Extra money 
 	
 		- There are 3 random choices
 			

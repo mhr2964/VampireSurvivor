@@ -8,13 +8,13 @@ function Candle() {
 	ds_list_add(candleDropList, 0);
 	ds_list_add(candleDropList, 10);
 	ds_list_add(candleDropList, 2);
-	ds_list_add(candleDropList, 48);
+	ds_list_add(candleDropList, 46);
 	ds_list_add(candleDropList, 18);
 	ds_list_add(candleDropList, 16);
 	ds_list_add(candleDropList, 2);
 	ds_list_add(candleDropList, 2);
 	ds_list_add(candleDropList, 2);
-	
+	ds_list_add(candleDropList, 2);
 }
 
 

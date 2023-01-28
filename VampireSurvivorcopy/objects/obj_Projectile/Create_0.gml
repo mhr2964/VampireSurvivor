@@ -86,7 +86,7 @@ function projectileMovement()
 		#region ScreenWipe
 		case 4:
 			//ScrenWipe	
-			var basey = obj_Player.y - 50
+			var basey = obj_Player.y - 75
 			x = obj_Player.x
 			var dur = projectileDuration mod 100; 
 			if (projectileDuration < 60) {
