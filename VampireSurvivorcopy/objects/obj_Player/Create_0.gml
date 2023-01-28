@@ -157,7 +157,14 @@ function playerCollision() {
 	//Pickup Coillision
 	if (place_meeting(x, y, obj_Pickup)) {
 		var pickupRef = instance_place(x, y, obj_Pickup);
-		switch (pickupRef.type) {
+		var tyy = pickupRef.type;
+		if (instance_exists(pickupRef)) {
+			with (pickupRef) {
+				instance_destroy();
+			}
+		}
+		
+		switch (tyy) {
 			case 0:
 				//SmallExpPickup + 1 exp
 				playerEXP += 1 * playerExpMultiplyer;
@@ -196,15 +203,14 @@ function playerCollision() {
 				break;
 			case 8:
 				//Treasure Chest
-				openChest()
+				show_message("open chest");
+				with (obj_Management) {
+					newLevelUpItem();
+				}
 				break;
 		}
 		
-		if (instance_exists(pickupRef)) {
-			with (pickupRef) {
-				instance_destroy();
-			}
-		}
+		
 		//Play playerp pickup sfx here if sound isn't already playing
 	}
 }
@@ -281,9 +287,6 @@ function playerTakeDamage(damage) {
 	}
 }
 
-function openChest() {
-		
-}
 
 
 

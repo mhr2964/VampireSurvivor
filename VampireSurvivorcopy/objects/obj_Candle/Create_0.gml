@@ -5,16 +5,17 @@ function Candle() {
 	
 	//Refer to Obsidian for how these drop chances work
 	candleDropList = ds_list_create();
-	ds_list_add(candleDropList, 0);
-	ds_list_add(candleDropList, 10);
-	ds_list_add(candleDropList, 2);
-	ds_list_add(candleDropList, 46);
-	ds_list_add(candleDropList, 18);
-	ds_list_add(candleDropList, 16);
-	ds_list_add(candleDropList, 2);
-	ds_list_add(candleDropList, 2);
-	ds_list_add(candleDropList, 2);
-	ds_list_add(candleDropList, 2);
+	ds_list_add(candleDropList, 0); //1 exp
+	ds_list_add(candleDropList, 10); //100 exp
+	ds_list_add(candleDropList, 2); //1000 exp
+	ds_list_add(candleDropList, 37); //1 money
+	ds_list_add(candleDropList, 18); //10 money
+	ds_list_add(candleDropList, 16); //chicken
+	ds_list_add(candleDropList, 5); //magnet
+	ds_list_add(candleDropList, 5); //screenwipe
+	ds_list_add(candleDropList, 5); //chest
+	
+
 }
 
 function candleDestroy() {

@@ -1,4 +1,5 @@
 draw_text(50, 50, "Fps: " + string(fps));
+if (instance_exists(obj_Player)) draw_text(50, 100, "PlayerMoney: " + string(obj_Player.playerMoney));
 
 if (levelUpScreen == true) {
 	//Draw the screen for levle up and let player choose an upgrade

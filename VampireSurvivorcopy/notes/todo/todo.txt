@@ -2,14 +2,7 @@
 
 
 - Revives
-- Enemy spawns
-- Chests
-- Bible
-- Screenwipe weapon
 
-- Fix how I'm doing constructors for each of them
-
-Set up enemies dropping shit on death
 
 
 Fix what happens at level choice if you don't have enough to satisfy 3 levels
