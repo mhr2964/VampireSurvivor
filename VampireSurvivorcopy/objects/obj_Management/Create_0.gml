@@ -1,7 +1,5 @@
 levelUpScreen = false;
 levelUpChoices = -1;
-gameTimer = 0;
-enemies = ds_list_create();
 
 screenWipeTime = 60;
 screenWipeTimer = -1;
