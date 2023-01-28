@@ -87,7 +87,7 @@ function projectileMovement()
 			//image_xscale = projectileDirection;
 			//x += projectileMoveSpeed * projectileDirection;
 			projectileOrbitalCenterX = obj_Player.x;
-			projectileOrbitalCenterX = obj_Player.y;
+			projectileOrbitalCenterY = obj_Player.y;
 			
 			projectileOrbitalAngle += projectileOrbitalSpeed;
 			if (projectileOrbitalAngle >= 360) 
@@ -112,6 +112,7 @@ function projectileTypePreset(type, lvl) {
 	projectileActive = true;
 	projectileInvulnerabilityFrames = noone;
 	projectileDestroyOffScreen = false;
+	projectilePiercing = 9999;
 	
 	switch (type) {
 		#region Knife
@@ -165,7 +166,6 @@ function projectileTypePreset(type, lvl) {
 			//Base lvl 0 stats
 			projectileDamage = 1;
 			projectileExtraAmount = 0;
-			projectilePiercing = 1;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 20;
@@ -208,7 +208,6 @@ function projectileTypePreset(type, lvl) {
 			//Base lvl 0 stats
 			projectileDamage = 2;
 			projectileExtraAmount = 0;
-			projectilePiercing = 9999;
 			projectileCooldown = 60;
 			projectileKnockback = 0;
 			projectileTimeBetweenShots = 10;
@@ -249,7 +248,6 @@ function projectileTypePreset(type, lvl) {
 			//Base lvl 0 stats
 			projectileDamage = 1;
 			projectileExtraAmount = 0;
-			projectilePiercing = 9999;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
 			projectileTimeBetweenShots = 10;
@@ -278,17 +276,14 @@ function projectileTypePreset(type, lvl) {
 			projectileDuration = 200;
 			projectileOrbitalDistance = 200;
 			projectileOrbitalAngle = 0;
-			projectileOrbitalSpeed = 1;
+			projectileOrbitalSpeed = 3;
 			projectileOrbitalCenterX = obj_Player.x;
 			projectileOrbitalCenterX = obj_Player.y;
-			
 			
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
 			projectileExtraAmount = 0;
-			projectilePiercing = 1;
-			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
 			projectileTimeBetweenShots = 15;
