@@ -1,3 +1,5 @@
+draw_text(50, 50, "Fps: " + string(fps));
+
 if (levelUpScreen == true) {
 	//Draw the screen for levle up and let player choose an upgrade
 	draw_rectangle_color(room_width / 2 - room_width / 4, 
