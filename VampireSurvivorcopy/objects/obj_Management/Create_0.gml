@@ -1,6 +1,7 @@
 levelUpScreen = false;
 levelUpChoices = -1;
-
+gameTimer = 0;
+enemies = ds_list_create();
 
 
 
