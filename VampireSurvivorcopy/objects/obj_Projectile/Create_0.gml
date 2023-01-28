@@ -81,6 +81,25 @@ function projectileMovement()
 			}
 			break;
 			#endregion
+		#region Bible
+		case 5:
+			//Bible
+			//image_xscale = projectileDirection;
+			//x += projectileMoveSpeed * projectileDirection;
+			projectileOrbitalCenterX = obj_Player.x;
+			projectileOrbitalCenterX = obj_Player.y;
+			
+			projectileOrbitalAngle += projectileOrbitalSpeed;
+			if (projectileOrbitalAngle >= 360) 
+			{
+				projectileOrbitalAngle -= 360;
+			}
+			
+			x = lengthdir_x(projectileOrbitalDistance, projectileOrbitalAngle) + projectileOrbitalCenterX;
+			y = lengthdir_y(projectileOrbitalDistance, projectileOrbitalAngle) + projectileOrbitalCenterY;
+			
+			break;
+			#endregion
 	}
 }
 
@@ -250,6 +269,48 @@ function projectileTypePreset(type, lvl) {
 				projectileMoveSpeed += 1;
 			}
 			break;	
+			#endregion
+		#region Bible
+		case 5:
+			//knife 
+			//unchanging stuff
+			projectileDestroyOffScreen = false;
+			projectileDuration = 200;
+			projectileOrbitalDistance = 200;
+			projectileOrbitalAngle = 0;
+			projectileOrbitalSpeed = 1;
+			projectileOrbitalCenterX = obj_Player.x;
+			projectileOrbitalCenterX = obj_Player.y;
+			
+			
+			
+			//Base lvl 0 stats
+			projectileDamage = 1;
+			projectileExtraAmount = 0;
+			projectilePiercing = 1;
+			projectileMoveSpeed = 10;
+			projectileCooldown = 60;
+			projectileKnockback = 5;
+			projectileTimeBetweenShots = 15;
+			
+			if (lvl >= 1) projectileDamage += 5;
+			if (lvl >= 2) projectilePiercing += 1;
+			if (lvl >= 3) projectileExtraAmount += 1;
+			if (lvl >= 4) projectileMoveSpeed += 5;
+			if (lvl >= 5) projectileDamage += 5;
+			if (lvl >= 6) projectileExtraAmount += 1;
+			if (lvl >= 7) projectileMoveSpeed += 5;
+			if (lvl >= 8) projectilePiercing += 1;
+			if (lvl >= 9) projectileExtraAmount += 1;
+			if (lvl >= 10) {
+				projectileDamage += 10;
+				projectileExtraAmount += 1;
+				projectilePiercing += 1;
+				projectileMoveSpeed += 1;
+			}
+
+
+			break; 
 			#endregion
 	}
 }
