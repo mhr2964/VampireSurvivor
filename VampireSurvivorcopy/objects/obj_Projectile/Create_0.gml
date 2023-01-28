@@ -81,6 +81,38 @@ function projectileMovement()
 			}
 			break;
 			#endregion
+			
+		
+		#region ScreenWipe
+		case 4:
+			//ScrenWipe	
+			var basey = obj_Player.y - 50
+			x = obj_Player.x
+			var dur = projectileDuration mod 100; 
+			if (projectileDuration < 60) {
+				image_blend = c_gray;
+			} else {
+				if (projectileDuration mod 30 == 0) {
+					image_blend = c_red;
+				} 
+				if (projectileDuration mod 20 == 0) {
+					image_blend = c_white;	
+				}
+			}
+			if (projectileDuration mod 200 < 100) {
+				y = basey - 50 + dur / 2;
+			} else {
+				y = basey - dur / 2;
+			}
+			
+			if (projectileDuration == 0) {
+				with (obj_Management) {
+					screenWipe();	
+				}
+			}
+			break;
+		#endregion
+		
 		#region Bible
 		case 5:
 			//Bible
@@ -268,6 +300,35 @@ function projectileTypePreset(type, lvl) {
 			}
 			break;	
 			#endregion
+		#region ScreenWipe
+		case 4:
+		
+			projectileDestroyOffScreen = false;
+			projectileDuration = 600;
+
+			// Base lvl0 stats
+	
+			projectileDamage = 0;
+			projectileExtraAmount = 0;
+			projectilePiercing = 0;
+			projectileMoveSpeed = 0;
+			projectileCooldown = 300
+			projectileKnockback = 0;
+			projectileTimeBetweenShots = 0;
+
+			if (lvl >= 1) projectileCooldown -= 5;
+			if (lvl >= 2) projectileCooldown -= 5;
+			if (lvl >= 3) projectileCooldown -= 5;
+			if (lvl >= 4) projectileCooldown -= 5;
+			if (lvl >= 5) projectileCooldown -= 10;
+			if (lvl >= 6) projectileCooldown -= 5;
+			if (lvl >= 7) projectileCooldown -= 5;
+			if (lvl >= 8) projectileCooldown -= 5;
+			if (lvl >= 9) projectileCooldown -= 5;
+			if (lvl >= 10) projectileCooldown -= 10;
+
+			break;
+		#endregion
 		#region Bible
 		case 5:
 			//knife 

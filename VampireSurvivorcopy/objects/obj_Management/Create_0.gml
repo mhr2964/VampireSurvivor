@@ -3,6 +3,8 @@ levelUpChoices = -1;
 gameTimer = 0;
 enemies = ds_list_create();
 
+screenWipeTime = 60;
+screenWipeTimer = -1;
 
 
 function gameOver() {
@@ -16,7 +18,10 @@ function magenetizeAll() {
 }
 
 function screenWipe() {
-	
+	screenWipeTimer = screenWipeTime;
+	with (obj_Enemy) {
+		enemyDeath();	
+	}
 }
 
 global.Debug = true;

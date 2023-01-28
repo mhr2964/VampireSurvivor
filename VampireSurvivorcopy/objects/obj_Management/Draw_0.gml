@@ -88,5 +88,10 @@ if (instance_exists(obj_Player)) {
 	}
 }
 
+if (screenWipeTimer > 0) {
+	screenWipeTimer--;
+	draw_set_alpha(screenWipeTimer / screenWipeTime);
+	draw_rectangle_color(0, 0, room_width, room_height, c_white, c_white, c_white, c_white, false);
+}
 
 
