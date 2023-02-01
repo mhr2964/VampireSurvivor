@@ -152,6 +152,7 @@ function projectileTypePreset(type, lvl) {
 	projectileDestroyOffScreen = false;
 	projectilePiercing = 9999;
 	projectileExtraAmount = 1;
+	layer = layer_get_id("Projectiles");
 	
 	switch (type) {
 		#region Knife

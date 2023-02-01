@@ -35,6 +35,7 @@ function Player() {
 	
 	
 	//Player Weapon initializing
+	layer = layer_get_id("Player");
 	playerWeaponLvlList = ds_list_create();
 	playerWeaponCoolDownList = ds_list_create();
 	playerWeaponExtraAmountList = ds_list_create();
