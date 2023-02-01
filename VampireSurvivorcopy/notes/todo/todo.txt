@@ -6,3 +6,10 @@
 
 
 Fix what happens at level choice if you don't have enough to satisfy 3 levels
+
+
+
+CAMERA
+
+
+SPAWNING CANDLES
