@@ -32,7 +32,7 @@ if (global.Debug) {
 	}
 	
 	if (keyboard_check_pressed(ord("L"))) {
-		upgradeIndex = 2;
+		upgradeIndex = 3;
 		ds_list_set(obj_Player.playerWeaponLvlList, upgradeIndex, ds_list_find_value(obj_Player.playerWeaponLvlList, upgradeIndex) + 1);
 	}
 	

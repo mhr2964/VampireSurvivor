@@ -292,15 +292,15 @@ function projectileTypePreset(type, lvl) {
 			projectileKnockback = 5;
 			projectileTimeBetweenShots = 10;
 			
-			if (lvl >= 1) projectileDamage += 5;
-			if (lvl >= 2) projectileMoveSpeed += 1;
+			if (lvl >= 1) projectileExtraAmount += 1;
+			if (lvl >= 2) projectileExtraAmount += 1;
 			if (lvl >= 3) projectileExtraAmount += 1;
-			if (lvl >= 4) projectileDamage += 5;
-			if (lvl >= 5) projectileDamage += 5;
+			if (lvl >= 4) projectileExtraAmount += 1;
+			if (lvl >= 5) projectileExtraAmount += 1;
 			if (lvl >= 6) projectileExtraAmount += 1;
-			if (lvl >= 7) projectileDamage += 5;
-			if (lvl >= 8) projectileMoveSpeed += 1;
-			if (lvl >= 9) projectileExtraAmount += 1;
+			if (lvl >= 7) projectileExtraAmount += 1;
+			if (lvl >= 8) projectileExtraAmount += 1;
+			if (lvl >= 9) projectileDamage += 5;
 			if (lvl >= 10) {
 				projectileDamage += 10;
 				projectileExtraAmount += 1;
