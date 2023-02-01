@@ -27,7 +27,7 @@ function projectileMovement()
 		#region Axe
 		case 1:
 			//Axe
-			image_xscale = projectileDirection;
+			//image_xscale = projectileDirection;
 			image_angle += projectileRotationSpeed;
 			x += projectileXSpeed;
 			y += projectileYSpeed;
@@ -86,8 +86,11 @@ function projectileMovement()
 		#region ScreenWipe
 		case 4:
 			//ScrenWipe	
-			var basey = obj_Player.y - 60;
-			x = obj_Player.x
+			if (instance_exists(obj_Player))
+			{
+				var basey = obj_Player.y - 60;
+				x = obj_Player.x
+			}
 			var dur = projectileDuration mod 100; 
 			if (projectileDuration < 60) {
 				image_blend = c_gray;
@@ -118,8 +121,11 @@ function projectileMovement()
 			//Bible
 			//image_xscale = projectileDirection;
 			//x += projectileMoveSpeed * projectileDirection;
-			projectileOrbitalCenterX = obj_Player.x;
-			projectileOrbitalCenterY = obj_Player.y;
+			if (instance_exists(obj_Player))
+			{
+				projectileOrbitalCenterX = obj_Player.x;
+				projectileOrbitalCenterY = obj_Player.y;
+			}
 			
 			projectileOrbitalAngle += projectileOrbitalSpeed;
 			if (projectileOrbitalAngle >= 360) 
@@ -145,6 +151,7 @@ function projectileTypePreset(type, lvl) {
 	projectileInvulnerabilityFrames = noone;
 	projectileDestroyOffScreen = false;
 	projectilePiercing = 9999;
+	projectileExtraAmount = 1;
 	
 	switch (type) {
 		#region Knife
@@ -157,27 +164,26 @@ function projectileTypePreset(type, lvl) {
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
-			projectileExtraAmount = 0;
 			projectilePiercing = 1;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
 			projectileTimeBetweenShots = 15;
 			
-			if (lvl >= 1) projectileDamage += 5;
-			if (lvl >= 2) projectilePiercing += 1;
-			if (lvl >= 3) projectileExtraAmount += 1;
+			if (lvl >= 1) projectileExtraAmount += 1;
+			if (lvl >= 2) {projectilePiercing += 2; projectileDamage += 5;}
+			if (lvl >= 3) projectileCooldown -= 20;
 			if (lvl >= 4) projectileMoveSpeed += 5;
 			if (lvl >= 5) projectileDamage += 5;
 			if (lvl >= 6) projectileExtraAmount += 1;
-			if (lvl >= 7) projectileMoveSpeed += 5;
-			if (lvl >= 8) projectilePiercing += 1;
+			if (lvl >= 7) {projectileMoveSpeed += 5; projectilePiercing += 2;}
+			if (lvl >= 8) projectileCooldown -= 20;
 			if (lvl >= 9) projectileExtraAmount += 1;
 			if (lvl >= 10) {
 				projectileDamage += 10;
 				projectileExtraAmount += 1;
 				projectilePiercing += 1;
-				projectileMoveSpeed += 1;
+				projectileMoveSpeed += 5;
 			}
 
 
@@ -197,20 +203,19 @@ function projectileTypePreset(type, lvl) {
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
-			projectileExtraAmount = 0;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 20;
 			projectileTimeBetweenShots = 10;
 			
 			if (lvl >= 1) projectileDamage += 5;
-			if (lvl >= 2) projectilePiercing += 1;
-			if (lvl >= 3) projectileExtraAmount += 1;
+			if (lvl >= 2) projectileExtraAmount += 1;
+			if (lvl >= 3) projectilePiercing += 5;
 			if (lvl >= 4) projectileDamage += 5;
-			if (lvl >= 5) projectileDamage += 5;
-			if (lvl >= 6) projectileExtraAmount += 1;
+			if (lvl >= 5) projectileExtraAmount += 1;
+			if (lvl >= 6) projectilePiercing += 5;
 			if (lvl >= 7) projectileDamage += 5;
-			if (lvl >= 8) projectilePiercing += 1;
+			if (lvl >= 8) {image_xscale = 1.5; image_yscale = 1.5;}
 			if (lvl >= 9) projectileExtraAmount += 1;
 			if (lvl >= 10) {
 				projectileDamage += 10;
@@ -232,14 +237,16 @@ function projectileTypePreset(type, lvl) {
 			projectileInvulnerabilityFrames = 25;
 			
 			//Positioning
-			x = random_range(obj_Player.x - 700, obj_Player.x + 400);
-			y = random_range(obj_Player.y - 300, obj_Player.y - 1300);
+			if (instance_exists(obj_Player))
+			{
+				x = random_range(obj_Player.x - 700, obj_Player.x + 400);
+				y = random_range(obj_Player.y - 300, obj_Player.y - 1300);
+			}
 			projectileYStart = y;
 			projectileFallDistance = 1000;
 			
 			//Base lvl 0 stats
 			projectileDamage = 2;
-			projectileExtraAmount = 0;
 			projectileCooldown = 60;
 			projectileKnockback = 0;
 			projectileTimeBetweenShots = 10;
@@ -279,7 +286,6 @@ function projectileTypePreset(type, lvl) {
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
-			projectileExtraAmount = 0;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
 			projectileTimeBetweenShots = 10;
@@ -309,7 +315,6 @@ function projectileTypePreset(type, lvl) {
 			// Base lvl0 stats
 	
 			projectileDamage = 0;
-			projectileExtraAmount = 0;
 			projectilePiercing = 0;
 			projectileMoveSpeed = 0;
 			projectileCooldown = 300
@@ -338,13 +343,15 @@ function projectileTypePreset(type, lvl) {
 			projectileOrbitalDistance = 200;
 			projectileOrbitalAngle = 0;
 			projectileOrbitalSpeed = 3;
-			projectileOrbitalCenterX = obj_Player.x;
-			projectileOrbitalCenterX = obj_Player.y;
+			if (instance_exists(obj_Player))
+			{
+				projectileOrbitalCenterX = obj_Player.x;
+				projectileOrbitalCenterY = obj_Player.y;
+			}
 			
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
-			projectileExtraAmount = 0;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
 			projectileTimeBetweenShots = 15;
