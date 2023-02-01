@@ -4,6 +4,7 @@ levelUpChoices = -1;
 screenWipeTime = 60;
 screenWipeTimer = -1;
 
+audio_play_sound(sound_gangnam, 0, true, 50);
 
 function gameOver() {
 	
