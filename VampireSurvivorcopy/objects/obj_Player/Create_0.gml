@@ -277,7 +277,7 @@ function playerLevelUp() {
 	if (playerEXP < 0) playerEXP = 0;
 	playerLevel += 1;
 	playerEXPThreshold = sqr(playerLevel);
-	show_message("playerlevelUp");
+	//show_message("playerlevelUp");
 	with (obj_Management) {
 		newLevelUpItem();
 	}

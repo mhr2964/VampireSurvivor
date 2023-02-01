@@ -30,18 +30,19 @@ global.Pause = false;
 
 function Pause() {
 	global.Pause = true;
-	if (global.Debug == true) show_message("GamePaused");
+	//if (global.Debug == true) show_message("GamePaused");
 	instance_deactivate_all(true);
 }
 
 function unPause() {
 	global.Pause = false;
-	if (global.Debug == true) show_message("Game Unpaused");
+	//if (global.Debug == true) show_message("Game Unpaused");
 	instance_activate_all()
 }
 
 function newLevelUpItem() {
-	show_message("newLevelUpItem ran");
+	
+	audio_play_sound(sound_joker, 0, 0)
 	levelUpScreen = true;
 	/* Calculate Odds for levl upgrades 
 		- New Weapon or passive

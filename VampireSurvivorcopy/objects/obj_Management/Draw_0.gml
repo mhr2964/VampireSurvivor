@@ -9,6 +9,11 @@ if (levelUpScreen == true) {
 		room_height * 7 / 8,
 		c_gray, c_gray, c_gray, c_gray, false
 		);
+
+	draw_sprite_pos(joker4, 0, room_width / 2 - room_width / 4, 
+		room_height / 8, room_width / 2 + room_width / 4, room_height / 8 + 1,
+		room_width / 2 + room_width / 4, 
+		room_height * 7 / 8, room_width / 2 - room_width / 4,  room_height * 7 / 8, 1);
 	/*
 		Split it into 3
 		Use levelUpChoices
