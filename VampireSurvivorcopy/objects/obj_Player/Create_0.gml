@@ -60,7 +60,9 @@ function Player() {
 		passiveTypePreset(i, 0);
 	}
 	
-	
+	//Set platyer to be in center of screen
+	x = room_width / 2;
+	y = room_height / 2;
 }
 
 function playerWeapons() {
@@ -220,7 +222,7 @@ function playerMovement() {
 	playerDir = point_direction(0, 0, keyboard_check(global.rightKey) - keyboard_check(global.leftKey), keyboard_check(global.downKey) - keyboard_check(global.upKey));
 	playerHspd = lengthdir_x(playerSpeed * (keyboard_check(global.rightKey) - keyboard_check(global.leftKey) != 0), playerDir);
 	playerVspd = lengthdir_y(playerSpeed * (keyboard_check(global.downKey) - keyboard_check(global.upKey) != 0), playerDir);
-	if (place_meeting(x + playerHspd + sign(playerHspd) * sprite_width / 2, y, obj_Wall)) {
+	/*if (place_meeting(x + playerHspd + sign(playerHspd) * sprite_width / 2, y, obj_Wall)) {
 		while (!place_meeting(x + sign(playerHspd) + sign(playerHspd) * sprite_width / 2, y, obj_Wall)) {
 			x += sign(playerHspd);	
 		}
@@ -234,7 +236,26 @@ function playerMovement() {
 		}
 		playerVspd = 0;
 	}
-	y += playerVspd;
+	y += playerVspd;*/
+	
+	//Making everything move around the player
+	
+	with (obj_Candle) {
+		x -= other.playerHspd;
+		y -= other.playerVspd;
+	}
+	with (obj_Projectile) {
+		x -= other.playerHspd;
+		y -= other.playerVspd;
+	}
+	with (obj_Pickup) {
+		x -= other.playerHspd;
+		y -= other.playerVspd;	
+	}
+	with (obj_Enemy) {
+		x -= other.playerHspd;
+		y -= other.playerVspd;	
+	}
 	
 	//Sprite stuff
 	if (sign(playerHspd) != 0 || sign(playerVspd) != 0) {
