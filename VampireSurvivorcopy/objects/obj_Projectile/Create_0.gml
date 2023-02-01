@@ -164,7 +164,7 @@ function projectileTypePreset(type, lvl) {
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
-			projectilePiercing = 1;
+			projectilePiercing = 0;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 5;
@@ -203,6 +203,7 @@ function projectileTypePreset(type, lvl) {
 			
 			//Base lvl 0 stats
 			projectileDamage = 1;
+			projectilePiercing = 5;
 			projectileMoveSpeed = 10;
 			projectileCooldown = 60;
 			projectileKnockback = 20;
