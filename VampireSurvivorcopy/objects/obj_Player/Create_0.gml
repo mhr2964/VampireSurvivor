@@ -206,7 +206,7 @@ function playerCollision() {
 				break;
 			case 8:
 				//Treasure Chest
-				show_message("open chest");
+				//show_message("open chest");
 				with (obj_Management) {
 					newLevelUpItem();
 				}
