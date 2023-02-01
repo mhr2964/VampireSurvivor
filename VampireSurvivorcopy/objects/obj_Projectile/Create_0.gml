@@ -40,7 +40,7 @@ function projectileMovement()
 		#region HolyWater
 		case 2:
 			//HolyWater
-			if (abs(y - projectileYStart) < projectileFallDistance && y + 5 < 1000)
+			if (abs(y - projectileYStart) < projectileFallDistance && y + 5 < 1000) && (!projectileActive)
 			{
 				image_angle += projectileRotationSpeed;
 				x += projectileXSpeed;

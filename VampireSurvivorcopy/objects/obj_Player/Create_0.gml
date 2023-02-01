@@ -245,10 +245,10 @@ function playerMovement() {
 		y -= other.playerVspd;
 	}
 	with (obj_Projectile) {
-		if (!projectileActive) {
-			x -= other.playerHspd;
-			y -= other.playerVspd;
-		}
+		
+		x -= other.playerHspd;
+		y -= other.playerVspd;
+		
 	}
 	with (obj_Pickup) {
 		x -= other.playerHspd;
